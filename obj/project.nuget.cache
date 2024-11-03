@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "MiPqQvgiYxg=",
+  "success": true,
+  "projectFilePath": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\WheelDeal.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\foksa\\.nuget\\packages\\csharpfunctionalextensions\\3.1.0\\csharpfunctionalextensions.3.1.0.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0-rc.2.24474.1\\microsoft.entityframeworkcore.9.0.0-rc.2.24474.1.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0-rc.2.24474.1\\microsoft.entityframeworkcore.abstractions.9.0.0-rc.2.24474.1.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.0-rc.2.24474.1\\microsoft.entityframeworkcore.analyzers.9.0.0-rc.2.24474.1.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.0-rc.2.24474.1\\microsoft.entityframeworkcore.relational.9.0.0-rc.2.24474.1.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.0-rc.2.24473.5\\microsoft.extensions.caching.abstractions.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.0-rc.2.24473.5\\microsoft.extensions.caching.memory.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0-rc.2.24473.5\\microsoft.extensions.configuration.abstractions.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.0-rc.2.24473.5\\microsoft.extensions.dependencyinjection.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0-rc.2.24473.5\\microsoft.extensions.dependencyinjection.abstractions.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.logging\\9.0.0-rc.2.24473.5\\microsoft.extensions.logging.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0-rc.2.24473.5\\microsoft.extensions.logging.abstractions.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.options\\9.0.0-rc.2.24473.5\\microsoft.extensions.options.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0-rc.2.24473.5\\microsoft.extensions.primitives.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\npgsql\\8.0.5\\npgsql.8.0.5.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.0-rc.2\\npgsql.entityframeworkcore.postgresql.9.0.0-rc.2.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\swashbuckle.aspnetcore\\6.9.0\\swashbuckle.aspnetcore.6.9.0.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.9.0\\swashbuckle.aspnetcore.swagger.6.9.0.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.9.0\\swashbuckle.aspnetcore.swaggergen.6.9.0.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.9.0\\swashbuckle.aspnetcore.swaggerui.6.9.0.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.0-rc.2.24473.5\\system.diagnostics.diagnosticsource.9.0.0-rc.2.24473.5.nupkg.sha512"
+  ],
+  "logs": []
+}

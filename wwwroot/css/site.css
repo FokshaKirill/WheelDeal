@@ -1,0 +1,151 @@
+input[type='submit'], button, [aria-label] {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'Montserratus';
+  src: url('../fonts/Montserrats/Montserrat-ExtraBold.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#editForm {
+  display: none;
+}
+
+a {
+  color: white;
+}
+
+table {
+  font-family: Arial, sans-serif;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #f8f8f8;
+  padding: 5px;
+}
+
+td {
+  border: 1px solid;
+  padding: 5px;
+}
+
+body {
+  background-color: #141315;
+  color: white;
+}
+
+.main {
+  font-family: Montserratus, sans-serif;
+  font-size: 64pt;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.sectionF {
+  border-radius: 50px;
+  background-color: white;
+  color: black;
+  padding: 2rem;
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.3);
+  filter: blur(25%);
+  margin-bottom: 15px;
+  z-index: -1;
+}
+
+.sectionS {
+  border-radius: 50px;
+  background-color: #e2ddff;
+  color: black;
+  padding: 2rem;
+  box-shadow: 0 0 200px rgba(226, 221, 255, 0.3);
+  filter: blur(25%);
+  margin-bottom: 15px;
+  z-index: -1;
+}
+
+.section-image {
+  width: 100%;
+  border-radius: 25px;
+  box-shadow: 2px 2px 5px gray;
+  margin-bottom: 15px;
+}
+
+.service {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.serviceItem {
+  width: 33%;
+  aspect-ratio: 4/3;
+  background-color: #e2ddff; //#f0efed
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+.service-image {
+  width: 30%;
+  aspect-ratio: 1/1;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.contacts {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.contactsItem {
+  width: 24.5%;
+  aspect-ratio: 2/1;
+  background-color: #9710e0;
+  color: white;
+  padding: 10px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+.contacts-image {
+  width: 30%;
+  aspect-ratio: 1/1;
+  margin: 15px;
+}
+
+.popular {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.popularItem {
+  width: 19%;
+  aspect-ratio: 3/4;
+  background-color: black;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  border-radius: 25px;
+  margin-top: 15px;
+}
+
