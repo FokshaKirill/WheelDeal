@@ -51,3 +51,4 @@ G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\refint\Whe
 G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\WheelDeal.pdb
 G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\WheelDeal.genruntimeconfig.cache
 G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\ref\WheelDeal.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\WheelDeal.sourcelink.json

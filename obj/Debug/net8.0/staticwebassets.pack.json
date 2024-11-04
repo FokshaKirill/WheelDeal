@@ -89,12 +89,24 @@
       "PackagePath": "staticwebassets\\html\\index.html"
     },
     {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\New Project.gif",
+      "PackagePath": "staticwebassets\\images\\New Project.gif"
+    },
+    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\about.jpg",
       "PackagePath": "staticwebassets\\images\\about.jpg"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\gmail.png",
       "PackagePath": "staticwebassets\\images\\gmail.png"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\header1.jpg",
+      "PackagePath": "staticwebassets\\images\\header1.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\header2.jpeg",
+      "PackagePath": "staticwebassets\\images\\header2.jpeg"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\inst.png",
@@ -119,6 +131,14 @@
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\service3.png",
       "PackagePath": "staticwebassets\\images\\service3.png"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\smoke_orb.gif",
+      "PackagePath": "staticwebassets\\images\\smoke_orb.gif"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\smoke_orb2.gif",
+      "PackagePath": "staticwebassets\\images\\smoke_orb2.gif"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\tg.png",
