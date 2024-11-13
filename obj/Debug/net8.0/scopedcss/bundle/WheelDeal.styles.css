@@ -40,11 +40,22 @@ button.accept-policy[b-ldc6hzyd6o] {
   line-height: inherit;
 }
 
-.footer[b-ldc6hzyd6o] {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
-  margin-top: 10px;
+.menu ul li a[b-ldc6hzyd6o]{
+  text-decoration: none;
+  color: #9710e0;
+  margin: 0 15px;
 }
+
+.menu ul[b-ldc6hzyd6o] {
+  display: flex;
+  flex-direction: row;
+}
+
+/*.footer {*/
+/*  position: relative;*/
+/*  bottom: 0;*/
+/*  width: 100%;*/
+/*  white-space: nowrap;*/
+/*  line-height: 1;*/
+/*  padding: 3% 0 5% 0;*/
+/*}*/

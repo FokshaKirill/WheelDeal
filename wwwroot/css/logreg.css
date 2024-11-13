@@ -1,0 +1,219 @@
+﻿/**
+ * LogReg Form
+ -----------------------------*/
+
+#click-to-hide {
+    cursor: pointer;
+}
+
+#logregFormID {
+    width: 100%;
+    height: 97.7%;
+    z-index: 801;
+    padding: 2.5% 12.5%;
+    align-items: flex-start;
+    align-content: flex-start;
+    position: absolute;
+    backdrop-filter: blur(25px);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#logregFormID::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 800;
+    background-color: inherit;
+    filter: blur(50px);
+}
+
+.container-log-reg {
+    display: grid;
+    width: 540px;
+    height: 720px;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    z-index: 1000;
+    /*-webkit-mask-position: top; !* Safari *!*/
+    position: sticky;
+    top: 12.5%;
+}
+
+.block-container {
+    width: 100%;
+    height: 100%;
+    padding: 40px 0;
+    z-index: 901;
+    position: relative;
+}
+
+.block {
+    width: 1080px;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    background-color: #9710e0;
+    box-shadow: 0 5px 45px rgba(151, 16, 224, 0.7);
+}
+.block.active {
+    box-shadow: 0 5px 45px rgb(213, 160, 46);
+    background-color: rgb(255, 225, 58);
+}
+
+.block_item {
+    width: 50%;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+
+    /*background: #ffe13a;*/
+    /*color: black;*/
+    /*cursor: pointer;*/
+}
+
+.block-item {
+    text-align: center;
+}
+
+.block-item_title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.block-item_btn {
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-box {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    align-self: center;
+    z-index: 902;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.form-box.active {
+    left: 100%;
+}
+
+.form_title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-box label {
+    position: relative;
+}
+
+.form-box input {
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    font-size: inherit;
+}
+
+.form-box input:focus {
+    border-color: rgb(255, 225, 58);
+}
+
+.form-box input:focus + span,
+.form-box input:not(:placeholder-shown) ~ span {
+    top: -18px;
+    left: 8px;
+    font-size: 12px;
+    color: rgb(255, 225, 58);
+    background-color: #fff;
+}
+
+span {
+    cursor: text;
+    position: absolute;
+    top: 3%;
+    left: 16px;
+    color: rgb(131, 131, 131);
+    transition: all 0.3s ease-in-out;
+    padding: 0 4px;
+    margin: 15px 0 15px 0;
+}
+
+.form-btn {
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255, 225, 58);
+    color: #000;
+    padding: 10px 50px;
+    margin-top: 10px;
+    font-size: inherit;
+    width: fit-content;
+}
+
+.form_btn_signup {
+    color: #fff;
+    background-color: #9710e0;
+}
+
+.form {
+    display: flex;
+    width: 100%;
+    padding: 50px;
+    font-size: 16px;
+    position: absolute;
+    transition: 0.5s;
+    flex-direction: column;
+}
+
+.form_signin {
+    left: 0;
+    transition: 0.25s;
+}
+
+.form_signup {
+    left: 100%;
+    transition: 0s;
+}
+
+.form-box.active .form_signin {
+    left: -100%;
+    transition: 0s;
+}
+
+.form-box.active .form_signup {
+    left: 0;
+    transition: 0.25s;
+}
+
+#error-messages-singin { 
+    margin-top: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+}
+/**
+ * LogReg Form End
+ -----------------------------*/

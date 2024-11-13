@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WheelDeal.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/logreg.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="/images/logo.png" type="image/png">
+    <asp:ScriptManager ID="asm" runat="server" />
 </head>
-<body id="smoke-orb">
+<body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WheelDeal</a>
+                <img src="/images/logo.png" style="width: 32px; aspect-ratio: 1/1; margin: 0 0 0 5%" alt="logo"/>
+                <a class="navbar-brand" style="align-self: center; padding: 1% 0; margin: 0 4% 0 5px;" asp-area="" asp-controller="Home" asp-action="Index">WheelDeal</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,39 +24,69 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <div>
+                                <a class="nav-link text-dark" id="home" asp-area="" asp-controller="Home" asp-action="AutoPark">AutoPark</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <div>
+                                <a class="nav-link text-dark" id="countries" asp-area="" asp-controller="Home" asp-action="Countries">Countries</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Countries">Countries</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Catalogue">Catalogue</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="LogReg">Login/Registration</a>
+                            <div>
+                                <a class="nav-link text-dark" id="click-to-hide">Login/Registration</a>
+                            </div>
                         </li>
                     </ul>
+                    @* <partial name="_LoginPartial" /> *@
                 </div>
             </div>
         </nav>
+        @await Html.PartialAsync("LogReg")
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - WheelDeal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    @* <footer class="border-top footer text-muted" style="border: 0 solid white; border-top-width: 3px; "> *@
+    @*     <div class="container"> *@
+    @*         &copy; 2024 OOO «KISLOMOLO4NIY» - WheelDeal<br/><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+    @*     </div> *@
+    @* </footer> *@
+
+    <footer>
+        <div class="footer-left">
+            <div class="logo">WheelDeal</div>
+            <p style="margin-left: 0">
+                Надежный партнер в ваших путешествиях. Аренда авто с комфортом и гарантией качества. <br/>
+                Просим связаться с нами, если возникли какие-то вопросы: + 373 (775) 0-42-86
+            </p>
+            <div class="footer-TravelAgency">
+                &copy; 2024 - OOO «KISLOMOLO4NIY» - WheelDeal
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Главная</a></Li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#countries">Страны</a></li>
+                    <li><a href="#services">Услуги</a></Li>
+                </ul>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/dropdownList.js" asp-append-version="true"></script>
+    <script src="~/js/logreg.js" asp-append-version="true"></script>
+    @* <script src="~/js/logandreg_script.js" asp-append-version="true"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

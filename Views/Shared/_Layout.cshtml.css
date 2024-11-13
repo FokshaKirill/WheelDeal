@@ -39,11 +39,22 @@ button.accept-policy {
   line-height: inherit;
 }
 
-.footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
-  margin-top: 10px;
+.menu ul li a{
+  text-decoration: none;
+  color: #9710e0;
+  margin: 0 15px;
 }
+
+.menu ul {
+  display: flex;
+  flex-direction: row;
+}
+
+/*.footer {*/
+/*  position: relative;*/
+/*  bottom: 0;*/
+/*  width: 100%;*/
+/*  white-space: nowrap;*/
+/*  line-height: 1;*/
+/*  padding: 3% 0 5% 0;*/
+/*}*/

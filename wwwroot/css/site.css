@@ -9,12 +9,54 @@ input[type='submit'], button, [aria-label] {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'MontserratusLight';
+  src: url('../fonts/Montserrats/Montserrat-Light.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #editForm {
   display: none;
 }
 
+h1 {
+  font-family: Montserratus, sans-serif;
+  font-size: 48pt;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0 15% 0 15%;
+  justify-content: center;
+  text-align: center;
+}
+
+p {
+  margin: 5px;
+  line-height: 0.9;
+}
+
+.p2 {
+  font-family: MontserratusLight, sans-serif;
+  font-size: 24pt;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0 30% 0 30%;
+  font-style: normal;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+
 a {
   color: white;
+}
+
+ul { 
+  list-style-type: none; 
+}
+
+ul li div {
+  align-self: center; padding: 20px 35px 20px 35px;
 }
 
 table {
@@ -36,13 +78,18 @@ td {
 body {
   background-color: #141315;
   color: white;
+  border: white solid 2px; 
+  border-bottom-width: 0; 
+  border-top-width: 0;
+  margin: 0 12% 0 12%;
+  scroll-behavior: smooth;
 }
+
 #smoke-orb {
-  background-image: url('../images/smoke_orb.gif');
+  background-image: url('../images/smoke_orb2.gif');
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: 100% auto;
-  scroll-behavior: smooth;
   backdrop-filter: blur(10px);
   z-index: -1;
 }
@@ -56,7 +103,7 @@ body {
   margin-bottom: 35px;
   justify-content: center;
   text-align: left;
-  margin-left: -5%;
+  margin-left: -18%;
 }
 
 .main-section {
@@ -66,6 +113,22 @@ body {
   align-content: center; 
   margin-bottom: 5%; 
   margin-top: 5%;
+}
+
+.section-left {
+  width: 40%;
+  margin: 0 7% 3% 3%;
+  align-content: center;
+  justify-content: center;
+  font: 16pt MontserratusLight;
+}
+
+.section-right {
+  width: 40%;
+  margin: 0 3% 3% 7%;
+  align-content: center;
+  justify-content: center;
+  font: 16pt MontserratusLight;
 }
 
 .main-item {
@@ -90,26 +153,16 @@ body {
   margin-left: -8%;
 }
 
-.sectionF {
+.section {
   border-radius: 50px;
   padding: 2rem;
   background-color: white;
   color: black;
-  box-shadow: 0 0 200px rgba(255, 255, 255, 0.3);
-  filter: blur(25%);
-  margin-bottom: 15px;
-  z-index: -1;
+  margin: 16px 0;
 }
 
-.sectionS {
-  border-radius: 50px;
-  padding: 2rem;
-  background-color: #e2ddff;
-  color: black;
-  box-shadow: 0 0 200px rgba(226, 221, 255, 0.3);
-  filter: blur(25%);
-  margin-bottom: 15px;
-  z-index: -1;
+.glow {
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.3);
 }
 
 .section-image {
@@ -129,8 +182,7 @@ body {
 .serviceItem {
   width: 33%;
   aspect-ratio: 4/3;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
   justify-content: center;
   align-content: center;
   text-align: center;
@@ -166,7 +218,7 @@ body {
   color: white;
 }
 
-.contacts-image {
+.contacts-  {
   width: 30%;
   aspect-ratio: 1/1;
   margin: 15px;
@@ -180,19 +232,25 @@ body {
 }
 
 .popularItem {
-  width: 19%;
+  width: 24%;
   aspect-ratio: 3/4;
   padding-left: 10px;
   padding-right: 10px;
   justify-content: center;
-  align-content: center;
   text-align: center;
   border-radius: 25px;
   margin-top: 15px;
-  background-color: black;
-  color: white;
+  color: black;
+  background-color: white;
+  cursor: pointer;
 }
 
+.popular-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin: 10px 0;
+  border-radius: 15px;
+}
 .logreg {
   width: 35%;
   padding: 25px;
@@ -201,7 +259,6 @@ body {
 
   /*box-shadow: 0 0 200px rgba(255, 255, 255, 0.3);*/
   box-shadow: 0 0 200px rgba(151, 16, 224, 0.8);
-  z-index: -1;
 }
 
 .full {
@@ -213,16 +270,138 @@ body {
   justify-content: center;
   text-align: center;
   width: 100%;
-  height: 85vh;
+  height: 82.8vh;
 }
 
-input {
-  text-align: center;
-  width: 85%;
-  aspect-ratio: 10/1;
-  border-radius: 10px;
+.nav-border {
+  border-left-width: 2px; 
+  border-right-width: 2px; 
+  border-color: black; 
   border-style: solid;
-  margin-bottom: 10px;
-  border-color: white;
-  background-color: #7c0eb8;
 }
+
+.map {
+    border: black 1px solid; padding: 2px;
+}
+
+/**
+ * Dropdown List
+ -----------------------------*/
+
+.section .link {
+  cursor: pointer;
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.submenu {
+  display: none;
+  font-size: 14px;
+}
+
+.da {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.submenu div li div {
+  text-decoration: none;
+  color: white;
+  margin: 0 10px 0 10px;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  border-radius: 15px;
+  transition: all 0.25s ease;
+}
+
+.submenu div li div:hover {
+  background: #ffe13a;
+  color: black;
+  cursor: pointer;
+}
+
+/**
+ * Dropdown List End
+ -----------------------------*/
+
+/**
+ * Message Block
+ -----------------------------*/
+
+.block-message {
+  display: grid;
+  width: 100%;
+  justify-self: center;
+  text-align: center;
+}
+
+.message-text {
+  display: grid;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.message-text .text { 
+  height: 150px; 
+  resize: none;
+}
+
+.message-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.message-button .button {
+  border: none;
+  background-color: rgb(255, 225, 58);
+  padding: 15px 30px;
+  border-radius: 3px;
+  color: #000000;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 250ms ease;
+}
+
+.message-button .button:hover {
+  color: #fff;
+  background-color: #000000;
+}
+
+/* Стили для футера */
+footer {
+  width: 100%;
+  padding: 60px 0;
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 0 solid white; 
+  border-top-width: 2px;
+}
+
+footer .footer-left { 
+  width: 50%; 
+  display: grid; 
+}
+
+footer .footer-right {
+  width: 30%;
+  
+}
+
+.footer-TravelAgency { 
+  margin-bottom: 20px;
+}
+
+/**
+ * Message Block End
+ -----------------------------*/

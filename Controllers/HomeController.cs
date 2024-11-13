@@ -1,5 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WheelDeal.Database;
+using WheelDeal.Domain.ViewModels.LogAndReg;
+using WheelDeal.Entities;
 using WheelDeal.Models;
 
 namespace WheelDeal.Controllers;
@@ -14,10 +18,15 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
-    {
+    {            
         return View();
     }
 
+    public IActionResult AutoPark()
+    {
+        return View();
+    }
+    
     public IActionResult Privacy()
     {
         return View();
@@ -27,17 +36,34 @@ public class HomeController : Controller
     {
         return View();
     }
-    
-    public IActionResult Catalogue()
+
+    [HttpPost]
+    public IActionResult Login([FromBody] LoginViewModel model)
     {
-        return View();
+        if (ModelState.IsValid)
+            return Ok(model);
+        var errors = ModelState.Values.SelectMany(v => v.Errors)
+            .Select(e => e.ErrorMessage)
+            .ToList();
+        return BadRequest(errors); // Возвращаем ошибки 400 Bad Request с сообщениями об ошибках
     }
     
-    public IActionResult LogReg()
+    [HttpPost]
+    public IActionResult Register([FromBody] RegisterViewModel model)
     {
-        return View();
+        if (!ModelState.IsValid)
+        {
+            var errors = ModelState.Values.SelectMany(v => v.Errors)
+
+            .Select(e => e.ErrorMessage)
+            .ToList();
+            
+            return BadRequest(errors); // Возвращаем ошибки 400 Bad Request с сообщениями об ошибках
+        }
+        
+        return Ok(model);
     }
-    
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

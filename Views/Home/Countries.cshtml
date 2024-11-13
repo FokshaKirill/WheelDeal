@@ -1,6 +1,70 @@
 ﻿@{
     ViewData["Title"] = "Countries";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Here will be full list of countries.</p>
+<section id="countries-main" class="section glow">
+    <div class="container">
+        <h1>Мы - везде.</h1>
+        <p class="p2">
+            Наши сервисы расположены во всех уголках Приднестровья, даже в посёлке Красное.
+        </p>
+        <div class="map">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A67750b5248913c6e43ca3fda0affec3160319e6545d9a655ade7ac8a1d6f5edd&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+    </div>
+    <div class="container-section">
+        <p class="p2">
+            Написать сообщение
+        </p>
+        <div class="block-message">
+            <p style="margin-bottom: 0">Вы можете написать нам на почту здесь:</p>
+            <div class="message-text" style="margin-top: 0">
+                <textarea class="text" style="padding: 5px"></textarea>
+            </div>
+            <div class="message-button">
+                <button class="button" type="submit">Отправить</button> </div>
+        </div>
+    </div>
+</section>
+
+<ul id="accordion" class="section" style="background-color: #292929">
+    <li>
+        <div class="link">
+            <p class="p2">Где нас можно найти?</p>
+        </div>
+        <ul class="submenu">
+            <div class="da">
+                <li>
+                    <div>
+                        <h5 style="margin-bottom: 0;">«Офис ООО "WheelDeal", Тирасполь»</h5>
+                        <p style="margin-top: 0; line-height: 1.2">
+                            Адрес: г. Тирасполь, ул. Краснодонская, 36/7<br/>
+                            Телефон: +373 (775) 0-42-86<br/>
+                            Время работы: 8:30 - 21:00<br/>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h5 style="margin-bottom: 0;">«Сервис OOO "WheelDeal", Тернополь»</h5>
+                        <p style="margin-top: 0; line-height: 1.2">
+                            Адрес: г. Тирасполь, ул. Комсомольская, 37<br/>
+                            Телефон: +373 (775) 0-42-86<br/>
+                            Время работы: 8:30 - 21:00<br/>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h5 style="margin-bottom: 0;">«Сервис OOO "WheelDeal", Слободзея»</h5>
+                        <p style="margin-top: 0; line-height: 1.2">
+                            Адрес: г. Слободзея, ул. Навального, 11<br/>
+                            Телефон: +373 (775) 0-42-86<br/>
+                            Время работы: 8:30 - 21:00<br/>
+                        </p>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </li>
+</ul>

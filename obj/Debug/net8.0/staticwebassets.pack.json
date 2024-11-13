@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WheelDeal.bundle.scp.css"
     },
     {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\css\\logreg.css",
+      "PackagePath": "staticwebassets\\css\\logreg.css"
+    },
+    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -85,14 +89,6 @@
       "PackagePath": "staticwebassets\\fonts\\Montserrats\\Montserrat-ThinItalic.ttf"
     },
     {
-      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\html\\index.html",
-      "PackagePath": "staticwebassets\\html\\index.html"
-    },
-    {
-      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\New Project.gif",
-      "PackagePath": "staticwebassets\\images\\New Project.gif"
-    },
-    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\about.jpg",
       "PackagePath": "staticwebassets\\images\\about.jpg"
     },
@@ -109,8 +105,24 @@
       "PackagePath": "staticwebassets\\images\\header2.jpeg"
     },
     {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\hondaAccord.jpeg",
+      "PackagePath": "staticwebassets\\images\\hondaAccord.jpeg"
+    },
+    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\inst.png",
       "PackagePath": "staticwebassets\\images\\inst.png"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\mazda626.jpg",
+      "PackagePath": "staticwebassets\\images\\mazda626.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\opelAstra.jpg",
+      "PackagePath": "staticwebassets\\images\\opelAstra.jpg"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\phone.png",
@@ -143,6 +155,18 @@
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\tg.png",
       "PackagePath": "staticwebassets\\images\\tg.png"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\js\\dropdownList.js",
+      "PackagePath": "staticwebassets\\js\\dropdownList.js"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\js\\logandreg_script.js",
+      "PackagePath": "staticwebassets\\js\\logandreg_script.js"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\js\\logreg.js",
+      "PackagePath": "staticwebassets\\js\\logreg.js"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\js\\site.js",

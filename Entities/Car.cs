@@ -4,6 +4,7 @@ namespace WheelDeal.Entities;
 
 public class Car : Entity
 {
+    public int Id { get; private set; } 
     public string Brand { get; set; }
     public string Model { get; set; }
     public int Year { get; set; }
@@ -16,5 +17,4 @@ public class Car : Entity
     public string Transmission { get; set; }
     public decimal FuelConsumption { get; set; }
     public decimal Power { get; set; }
-
 }
