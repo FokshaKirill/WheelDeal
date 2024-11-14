@@ -39,6 +39,17 @@
                             </div>
                         </li>
                     </ul>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Parent Link</a>
+                            <ul>
+                                <li><a href="#">Личный кабинет</a></li>
+                                <li><a href="#">Корзина</a></li>
+                                <li><a href="#">Настройки</a></li>
+                                <li><a href="#" style="color: red">Выход с аккаунта</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                     @* <partial name="_LoginPartial" /> *@
                 </div>
             </div>
@@ -86,7 +97,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/dropdownList.js" asp-append-version="true"></script>
     <script src="~/js/logreg.js" asp-append-version="true"></script>
-    @* <script src="~/js/logandreg_script.js" asp-append-version="true"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

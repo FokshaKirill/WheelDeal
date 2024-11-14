@@ -1,13 +1,4 @@
 ﻿document.addEventListener('DOMContentLoaded', function() {
-    // function hiddenOpen_Closeclick() {
-    //     let x = document.querySelector(".container-log-reg");
-    //     if (x.style.display == "none") {
-    //         x.style.display = "grid";
-    //     } else {
-    //         x.style.display = "none";
-    //     }
-    // }
-
     function hiddenOpen_Closeclick() {
         let x = document.getElementById("logregFormID");
         if (x.style.display == "none") {
@@ -68,8 +59,7 @@
                 });
         });
     }
-    if
-    (form_btn_signup) {
+    if (form_btn_signup) {
         form_btn_signup.addEventListener('click', function () {
             const requestURL = '/Home/Register';
 
@@ -94,6 +84,8 @@
                     cleaningAndClosingForm(form, errorContainer);
 
                     console.log('Успешный ответ:', data);
+                    
+                    location.reload();
                 })
                 .catch(err => {
                     displayErrors(err, errorContainer);
@@ -138,7 +130,7 @@
                 form[key].value = ''; // Сброс значений полей формы
             }
         }
-        hiddenOpen_Closeclick();
     }
+    hiddenOpen_Closeclick();
 });
 

@@ -1,5 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 using Microsoft.EntityFrameworkCore;
+using WheelDeal.Database.ModelsDb;
 using WheelDeal.Entities;
 using WheelDeal.Models;
 
@@ -7,33 +8,23 @@ namespace WheelDeal.Database;
 
 public class ApplicationDbContext : DbContext
 {
-    // public DbSet<ItemCard> ItemCards { get; set; }
-    //
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //     {
-    //     if (!optionsBuilder.IsConfigured)
-    //     {
-    //         IConfigurationRoot configuration = new ConfigurationBuilder()
-    //             .SetBasePath(Directory.GetCurrentDirectory())
-    //             .AddJsonFile("appsettings.json")
-    //             .Build();
-    //         var connectionString = configuration.GetConnectionString("DBContextConnection");
-    //         optionsBuilder.UseSqlServer(connectionString);
-    //     }
-    // }
-    //
-    // private readonly IConfiguration _configuration;
-    //
-    // public ApplicationDbContext(IConfiguration configuration)
-    // {
-    //     _configuration = configuration;
-    // }
-    //
-    // public ApplicationDbContext()
-    // {
-    //     throw new NotImplementedException();
-    // }
-    //
+    public DbSet<UserDb> UsersDb { get; set; }
+    public DbSet<RateDb> RatesDb { get; set; }
+    public DbSet<PostDb> PostsDb { get; set; }
+    public DbSet<CarDb> CarsDb { get; set; }
+    
+    private readonly IConfiguration Configuration;
+    
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+        
+    }
+    
+    public ApplicationDbContext()
+    {
+        throw new NotImplementedException();
+    }
+    
     // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     // {
     //     optionsBuilder

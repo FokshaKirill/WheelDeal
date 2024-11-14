@@ -81,17 +81,19 @@ body {
   border: white solid 2px; 
   border-bottom-width: 0; 
   border-top-width: 0;
-  margin: 0 12% 0 12%;
   scroll-behavior: smooth;
 }
 
+.section-body {
+  width: 100%;
+  height: 100%;
+}
+
 #smoke-orb {
-  background-image: url('../images/smoke_orb2.gif');
+  background-image: url('../images/smoke_orb3.gif');
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: 100% auto;
-  backdrop-filter: blur(10px);
-  z-index: -1;
 }
 
 .main {
@@ -206,6 +208,7 @@ body {
 }
 
 .contactsItem {
+  cursor: pointer;
   width: 24.5%;
   aspect-ratio: 2/1;
   padding: 10px;
@@ -216,9 +219,14 @@ body {
   margin-top: 10px;
   background-color: #9710e0;
   color: white;
+  text-decoration: none;
 }
 
-.contacts-  {
+.contactsItem:hover {
+  background-color: #b73cff;
+}
+
+.contacts-image {
   width: 30%;
   aspect-ratio: 1/1;
   margin: 15px;
@@ -250,15 +258,6 @@ body {
   aspect-ratio: 1/1;
   margin: 10px 0;
   border-radius: 15px;
-}
-.logreg {
-  width: 35%;
-  padding: 25px;
-  aspect-ratio: 3/1;
-  background-color: #9710e0;
-
-  /*box-shadow: 0 0 200px rgba(255, 255, 255, 0.3);*/
-  box-shadow: 0 0 200px rgba(151, 16, 224, 0.8);
 }
 
 .full {
@@ -380,7 +379,6 @@ body {
 footer {
   width: 100%;
   padding: 60px 0;
-  margin-top: 150px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -404,4 +402,61 @@ footer .footer-right {
 
 /**
  * Message Block End
+ -----------------------------*/
+
+/**
+ * DropDown Menu
+ -----------------------------*/
+
+.menu {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  width: 200px;
+}
+
+.menu > li > a {
+  background: #fff;
+  color: black;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu ul {
+  background: white;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  transition: all .1s ease;
+  top: 35px;
+  padding: 0;
+  width: 100%;
+  left: -137px;
+}
+
+.menu li:hover ul {
+  width: 350px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu ul a {
+  color: #000;
+  display: block;
+  border-bottom: solid 1px black;
+  width: 100%;
+
+  text-align: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/**
+ * DropDown Menu End
  -----------------------------*/

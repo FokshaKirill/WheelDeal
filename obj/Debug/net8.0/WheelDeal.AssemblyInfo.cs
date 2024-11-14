@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WheelDeal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c26e2a66791ec1ca8f260f5738f201c6e0e45e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97c5f83e6ad4479f37065b85e321f532ca014494")]
 [assembly: System.Reflection.AssemblyProductAttribute("WheelDeal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WheelDeal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

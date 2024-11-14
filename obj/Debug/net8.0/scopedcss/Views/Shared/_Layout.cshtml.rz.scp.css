@@ -41,8 +41,10 @@ button.accept-policy[b-ldc6hzyd6o] {
 
 .menu ul li a[b-ldc6hzyd6o]{
   text-decoration: none;
-  color: #9710e0;
-  margin: 0 15px;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 0;
 }
 
 .menu ul[b-ldc6hzyd6o] {
