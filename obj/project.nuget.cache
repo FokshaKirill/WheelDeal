@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "rPKrOnh/hFg=",
-  "success": true,
+  "dgSpecHash": "LdYY5Kf5Qbk=",
+  "success": false,
   "projectFilePath": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\WheelDeal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\foksa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
@@ -57,6 +57,8 @@
     "C:\\Users\\foksa\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\jquery\\3.7.1\\jquery.3.7.1.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\jquery.validation\\1.21.0\\jquery.validation.1.21.0.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.24\\microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\microsoft.build\\17.8.3\\microsoft.build.17.8.3.nupkg.sha512",
@@ -175,5 +177,141 @@
     "C:\\Users\\foksa\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 9.0.0 to 9.0.0-rc.2.24474.1. Reference the package directly from the project to select a different version. \r\n WheelDeal -> DAL -> Microsoft.EntityFrameworkCore (>= 9.0.0) \r\n WheelDeal -> Microsoft.EntityFrameworkCore (>= 9.0.0-rc.2.24474.1)",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore.SqlServer from 9.0.0 to 8.0.10. Reference the package directly from the project to select a different version. \r\n WheelDeal -> DAL -> Microsoft.EntityFrameworkCore.SqlServer (>= 9.0.0) \r\n WheelDeal -> Microsoft.EntityFrameworkCore.SqlServer (>= 8.0.10)",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.VisualStudio.Web.CodeGeneration.Design from 9.0.0 to 8.0.6. Reference the package directly from the project to select a different version. \r\n WheelDeal -> DAL -> Microsoft.VisualStudio.Web.CodeGeneration.Design (>= 9.0.0) \r\n WheelDeal -> Microsoft.VisualStudio.Web.CodeGeneration.Design (>= 8.0.6)",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.Design",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Npgsql.EntityFrameworkCore.PostgreSQL from 9.0.0 to 9.0.0-rc.2. Reference the package directly from the project to select a different version. \r\n WheelDeal -> DAL -> Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.0) \r\n WheelDeal -> Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.0-rc.2)",
+      "libraryId": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 7.0.0 to 6.9.0. Reference the package directly from the project to select a different version. \r\n WheelDeal -> DAL -> Swashbuckle.AspNetCore (>= 7.0.0) \r\n WheelDeal -> Swashbuckle.AspNetCore (>= 6.9.0)",
+      "libraryId": "Swashbuckle.AspNetCore",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 9.0.0 to 9.0.0-rc.2.24474.1. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Domain -> Microsoft.EntityFrameworkCore (>= 9.0.0) \r\n WheelDeal -> Microsoft.EntityFrameworkCore (>= 9.0.0-rc.2.24474.1)",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore.SqlServer from 9.0.0 to 8.0.10. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Domain -> Microsoft.EntityFrameworkCore.SqlServer (>= 9.0.0) \r\n WheelDeal -> Microsoft.EntityFrameworkCore.SqlServer (>= 8.0.10)",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.VisualStudio.Web.CodeGeneration.Design from 9.0.0 to 8.0.6. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Domain -> Microsoft.VisualStudio.Web.CodeGeneration.Design (>= 9.0.0) \r\n WheelDeal -> Microsoft.VisualStudio.Web.CodeGeneration.Design (>= 8.0.6)",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.Design",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Npgsql.EntityFrameworkCore.PostgreSQL from 9.0.0 to 9.0.0-rc.2. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Domain -> Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.0) \r\n WheelDeal -> Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.0-rc.2)",
+      "libraryId": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 7.0.0 to 6.9.0. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Domain -> Swashbuckle.AspNetCore (>= 7.0.0) \r\n WheelDeal -> Swashbuckle.AspNetCore (>= 6.9.0)",
+      "libraryId": "Swashbuckle.AspNetCore",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 9.0.0 to 9.0.0-rc.2.24474.1. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Service -> Microsoft.EntityFrameworkCore (>= 9.0.0) \r\n WheelDeal -> Microsoft.EntityFrameworkCore (>= 9.0.0-rc.2.24474.1)",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore.SqlServer from 9.0.0 to 8.0.10. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Service -> Microsoft.EntityFrameworkCore.SqlServer (>= 9.0.0) \r\n WheelDeal -> Microsoft.EntityFrameworkCore.SqlServer (>= 8.0.10)",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.VisualStudio.Web.CodeGeneration.Design from 9.0.0 to 8.0.6. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Service -> Microsoft.VisualStudio.Web.CodeGeneration.Design (>= 9.0.0) \r\n WheelDeal -> Microsoft.VisualStudio.Web.CodeGeneration.Design (>= 8.0.6)",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.Design",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Npgsql.EntityFrameworkCore.PostgreSQL from 9.0.0 to 9.0.0-rc.2. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Service -> Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.0) \r\n WheelDeal -> Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.0-rc.2)",
+      "libraryId": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 7.0.0 to 6.9.0. Reference the package directly from the project to select a different version. \r\n WheelDeal -> Service -> Swashbuckle.AspNetCore (>= 7.0.0) \r\n WheelDeal -> Swashbuckle.AspNetCore (>= 6.9.0)",
+      "libraryId": "Swashbuckle.AspNetCore",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

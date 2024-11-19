@@ -1,9 +1,12 @@
 ﻿document.addEventListener('DOMContentLoaded', function() {
     function hiddenOpen_Closeclick() {
+        let div = document.getElementsByClassName(".section-body");
         let x = document.getElementById("logregFormID");
         if (x.style.display == "none") {
+            // div.classList.add("blur-active");
             x.style.display = "grid";
         } else {
+            // div.classList.remove("blur-active");
             x.style.display = "none";
         }
     }
@@ -15,6 +18,7 @@
     const signUpBtn = document.querySelector('.signup-btn');
     const formBox = document.querySelector('.form-box');
     const block = document.querySelector('.block');
+    
     if (signInBtn && signUpBtn) {
         signUpBtn.addEventListener('click', function () {
             formBox.classList.add('active');
@@ -54,6 +58,7 @@
                     location.reload()
                 })
                 .catch(err => {
+                    console.error('Ошибка при отправке запроса:', err);
                     displayErrors(err, errorContainer);
                     console.log(err);
                 });
@@ -130,7 +135,7 @@
                 form[key].value = ''; // Сброс значений полей формы
             }
         }
+        hiddenOpen_Closeclick();
     }
-    hiddenOpen_Closeclick();
 });
 

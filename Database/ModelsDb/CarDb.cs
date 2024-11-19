@@ -6,7 +6,7 @@ namespace WheelDeal.Database.ModelsDb;
 public class CarDb
 {
     [Column("id")]
-    public int Id { get; private set; } 
+    public Guid Id { get; private set; } 
     
     [Column("brand")]
     public string Brand { get; set; }

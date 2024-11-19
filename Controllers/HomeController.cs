@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WheelDeal.Database;
 using WheelDeal.Domain.ViewModels.LogAndReg;
-using WheelDeal.Entities;
+using WheelDeal.Database.Entities;
 using WheelDeal.Models;
 
 namespace WheelDeal.Controllers;
@@ -41,10 +41,11 @@ public class HomeController : Controller
     public IActionResult Login([FromBody] LoginViewModel model)
     {
         if (ModelState.IsValid)
-            return Ok(model);
+            return Ok(model);  
+        
         var errors = ModelState.Values.SelectMany(v => v.Errors)
-            .Select(e => e.ErrorMessage)
-            .ToList();
+                                                .Select(e => e.ErrorMessage)
+                                                .ToList();
         return BadRequest(errors); // Возвращаем ошибки 400 Bad Request с сообщениями об ошибках
     }
     
@@ -54,9 +55,8 @@ public class HomeController : Controller
         if (!ModelState.IsValid)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors)
-
-            .Select(e => e.ErrorMessage)
-            .ToList();
+                                                    .Select(e => e.ErrorMessage)
+                                                    .ToList();
             
             return BadRequest(errors); // Возвращаем ошибки 400 Bad Request с сообщениями об ошибках
         }

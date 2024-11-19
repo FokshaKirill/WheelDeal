@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WheelDeal", "WheelDeal.csproj", "{0E8295D3-80FC-4A50-91D1-181530FFA0A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{283E8051-98FA-4389-A4B9-04B363D2D8E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{88CC5984-94CE-4675-A365-2CC4C5FB06D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{5A465FAF-77FF-4E4A-B56B-AD886086BAC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{0E8295D3-80FC-4A50-91D1-181530FFA0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E8295D3-80FC-4A50-91D1-181530FFA0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E8295D3-80FC-4A50-91D1-181530FFA0A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283E8051-98FA-4389-A4B9-04B363D2D8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283E8051-98FA-4389-A4B9-04B363D2D8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283E8051-98FA-4389-A4B9-04B363D2D8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283E8051-98FA-4389-A4B9-04B363D2D8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CC5984-94CE-4675-A365-2CC4C5FB06D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88CC5984-94CE-4675-A365-2CC4C5FB06D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88CC5984-94CE-4675-A365-2CC4C5FB06D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88CC5984-94CE-4675-A365-2CC4C5FB06D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A465FAF-77FF-4E4A-B56B-AD886086BAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A465FAF-77FF-4E4A-B56B-AD886086BAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A465FAF-77FF-4E4A-B56B-AD886086BAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A465FAF-77FF-4E4A-B56B-AD886086BAC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

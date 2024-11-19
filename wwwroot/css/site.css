@@ -78,10 +78,10 @@ td {
 body {
   background-color: #141315;
   color: white;
-  border: white solid 2px; 
   border-bottom-width: 0; 
   border-top-width: 0;
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 .section-body {
@@ -89,11 +89,14 @@ body {
   height: 100%;
 }
 
-#smoke-orb {
-  background-image: url('../images/smoke_orb3.gif');
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-size: 100% auto;
+.smoke-orb {
+  position: absolute;
+  width: 100%;
+  resize: horizontal;
+  filter: blur(10px);
+  left: 0;
+  top: 15%;
+  z-index: -1;
 }
 
 .main {
@@ -113,22 +116,37 @@ body {
   display: flex; 
   flex-direction: row; 
   align-content: center; 
-  margin-bottom: 5%; 
-  margin-top: 5%;
+  margin: 5% 0; 
+}
+
+.section-side {
+  display: flex;
+  flex-direction: row;
+}
+
+.section-side img {
+  width: 75%;
+  border-radius: 25px;
+  resize: horizontal;
+  box-shadow: rgba(0,0,0,0.5) 0 20px 15px -15px;
 }
 
 .section-left {
+  display: flex;
   width: 40%;
   margin: 0 7% 3% 3%;
   align-content: center;
+  align-items: center;
   justify-content: center;
   font: 16pt MontserratusLight;
 }
 
 .section-right {
+  display: flex;
   width: 40%;
   margin: 0 3% 3% 7%;
   align-content: center;
+  align-items: center;
   justify-content: center;
   font: 16pt MontserratusLight;
 }
@@ -260,18 +278,6 @@ body {
   border-radius: 15px;
 }
 
-.full {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 82.8vh;
-}
-
 .nav-border {
   border-left-width: 2px; 
   border-right-width: 2px; 
@@ -281,6 +287,10 @@ body {
 
 .map {
     border: black 1px solid; padding: 2px;
+}
+
+.section-body.blur-active {
+  filter: blur(15px);
 }
 
 /**
@@ -349,7 +359,6 @@ body {
 
 .message-text .text { 
   height: 150px; 
-  resize: none;
 }
 
 .message-button {
@@ -378,10 +387,10 @@ body {
 /* Стили для футера */
 footer {
   width: 100%;
-  padding: 60px 0;
+  padding: 60px 15%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 0 solid white; 
   border-top-width: 2px;
 }
@@ -389,15 +398,27 @@ footer {
 footer .footer-left { 
   width: 50%; 
   display: grid; 
+  padding-left: 3px;
 }
 
 footer .footer-right {
   width: 30%;
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
 }
 
-.footer-TravelAgency { 
+.footer-WheelDeal { 
   margin-bottom: 20px;
+}
+
+footer .footer-right a {
+  color: #b73cff;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 10%;
 }
 
 /**
@@ -413,7 +434,7 @@ footer .footer-right {
   margin: 0 auto;
   position: relative;
   padding: 0;
-  width: 200px;
+  width: 200px;  
 }
 
 .menu > li > a {
@@ -451,7 +472,6 @@ footer .footer-right {
   display: block;
   border-bottom: solid 1px black;
   width: 100%;
-
   text-align: center;
   justify-content: center;
   padding: 10px 0;

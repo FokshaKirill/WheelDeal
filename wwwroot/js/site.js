@@ -1,8 +1,8 @@
-﻿const uri = '';
+﻿const url = '';
 let todos = [];
 
 function getItems() {
-    fetch(uri)
+    fetch(url)
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => console.error('Unable to get items.', error));
@@ -16,7 +16,7 @@ function addItem() {
         name: addNameTextbox.value.trim()
     };
 
-    fetch(uri, {
+    fetch(url, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -33,7 +33,7 @@ function addItem() {
 }
 
 function deleteItem(id) {
-    fetch(`${uri}/${id}`, {
+    fetch(`${url}/${id}`, {
         method: 'DELETE'
     })
         .then(() => getItems())
@@ -57,7 +57,7 @@ function updateItem() {
         name: document.getElementById('edit-name').value.trim()
     };
 
-    fetch(`${uri}/${itemId}`, {
+    fetch(`${url}/${itemId}`, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',

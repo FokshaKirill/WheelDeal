@@ -6,7 +6,7 @@ namespace WheelDeal.Database.ModelsDb;
 public class UserDb
 {
     [Column("id")]
-    public int Id { get; private set; } 
+    public Guid Id { get; private set; } 
     
     [Column("login")]
     public string Login { get; set; }

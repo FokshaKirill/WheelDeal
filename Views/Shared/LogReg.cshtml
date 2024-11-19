@@ -17,8 +17,7 @@
 @* </section> *@
 @* *@
 
-
-<div id="logregFormID" class="full">
+<div id="logregFormID" style="display: none">
     <div class="container-log-reg">
         <div class="block-container">
             <div class="block">
@@ -33,27 +32,28 @@
                 </section>
             </div>
         </div>
+
         <div class="form-box">
             <form class="form form_signin">
                 <h3 class="form_title">Вход</h3>
-                <label id="signin_email"><input type="text" placeholder="Почта"/></label>
-                <label id="signin_password"><input type="password" placeholder="Пароль"/></label>
+                <label><input type="text" placeholder="Почта" id="signin_email"/></label>
+                <label><input type="password" placeholder="Пароль" id="signin_password"/></label>
                 <div class="form-btn form_btn_signin">Войти</div>
                 <div id="error-messages-signin"></div>
             </form>
 
             <form class="form form_signup">
                 <h3 class="form_title">Регистрация</h3>
-                <label id="signup_login"><input type="text" placeholder="Логин"/></label>
-                <label id="signup_email"><input type="text" placeholder="Почта"/></label>
-                <label id="signup_password"><input type="password" placeholder="Пароль"/></label>
-                <label id="confirm_password"><input type="password" placeholder="Подтвердите пароль"/></label>
+                <label><input type="text" placeholder="Логин" id="signup_login"/></label>
+                <label><input type="text" placeholder="Почта" id="signup_email"/></label>
+                <label><input type="password" placeholder="Пароль" id="signup_password"/></label>
+                <label><input type="password" placeholder="Подтвердите пароль" id="confirm_password"/></label>
                 <div class="form-btn form_btn_signup">Зарегистрироваться</div>
                 <div id="error-messages-signup"></div>
             </form>
         </div>
-            
-        </div>
-        <div class="overlay">
+
+    </div>
+    <div class="overlay">
     </div>
 </div>

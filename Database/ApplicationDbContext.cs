@@ -1,7 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
 using Microsoft.EntityFrameworkCore;
 using WheelDeal.Database.ModelsDb;
-using WheelDeal.Entities;
+using WheelDeal.Database.Entities;
 using WheelDeal.Models;
 
 namespace WheelDeal.Database;

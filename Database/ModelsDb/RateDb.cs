@@ -6,7 +6,7 @@ namespace WheelDeal.Database.ModelsDb;
 public class RateDb
 {
     [Column("id")]
-    public int Id { get; private set; } 
+    public Guid Id { get; private set; } 
     
     [Column("id_user")]
     public string UserId { get; set; }

@@ -6,7 +6,7 @@ namespace WheelDeal.Database.ModelsDb;
 public class PostDb
 {
     [Column("id")]
-    public int Id { get; private set; } 
+    public Guid Id { get; private set; } 
     
     [Column("description")]
     public string? Description { get; set; }
