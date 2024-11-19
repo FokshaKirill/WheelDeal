@@ -156,9 +156,14 @@ span {
     background-color: rgb(255, 225, 58);
     color: #000;
     padding: 10px 50px;
-    margin-top: 10px;
+    margin: 10px 0;
     font-size: inherit;
-    width: fit-content;
+}
+
+.form-btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transition: all 0.1s ease-in-out;
 }
 
 .form_btn_signup {
@@ -172,7 +177,7 @@ span {
     padding: 50px;
     font-size: 16px;
     position: absolute;
-    transition: 0.5s;
+    transition: 0.5s ease;
     flex-direction: column;
 }
 
@@ -188,16 +193,12 @@ span {
 
 .form-box.active .form_signin {
     left: -100%;
-    transition: 0s;
+    transition: 0.25s ease;
 }
 
 .form-box.active .form_signup {
     left: 0;
-    transition: 0.25s;
-}
-
-#error-messages-singin { 
-    margin-top: 10px;
+    transition: 0.25s ease;
 }
 
 .error {

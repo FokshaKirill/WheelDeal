@@ -32,7 +32,7 @@ h1 {
 
 p {
   margin: 5px;
-  line-height: 0.9;
+  line-height: 1;
 }
 
 .p2 {
@@ -396,13 +396,13 @@ footer {
 }
 
 footer .footer-left { 
-  width: 50%; 
+  width: 60%; 
   display: grid; 
   padding-left: 3px;
 }
 
 footer .footer-right {
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -480,3 +480,49 @@ footer .footer-right a {
 /**
  * DropDown Menu End
  -----------------------------*/
+
+
+.carousel-container {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 650px;
+  width: 100%;
+  overflow: initial;
+  background-color: #e2ddff;
+  padding: 35px 0;
+  border-radius: 25px;
+}
+.carousel_items {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  min-width: 100%;
+  height: 100%;
+}
+.carousel_item {
+  position: relative;
+  min-width: 400px;
+  height: 100%;
+  margin-right: 25px;
+  transition: all 1s ease-out;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: white;
+  border-radius: 50px;
+  padding: 16px;
+}
+.carousel_text {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 0.5rem 1rem;
+  color: black;
+}
+
+.carousel_item img {
+  width: 128px;
+  aspect-ratio: 1/1;
+  border-radius: 64px;
+}

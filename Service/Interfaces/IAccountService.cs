@@ -1,11 +1,13 @@
-﻿using WheelDeal.Database.Entities;
-using WheelDeal.Database.Responses;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
+using WheelDeal.Domain.Database.Entities;
+using WheelDeal.Domain.Database.Responses;
 
-namespace Service.Interfaces;
+namespace WheelDeal.Service.Interfaces;
 
 public interface IAccountService
 {
-    Task<BaseResponse<User>> Register(User model);
+    Task<BaseResponse<ClaimsIdentity>> Register(User model);
     
-    Task<BaseResponse<User>> Login(User model);
+    Task<BaseResponse<ClaimsIdentity>> Login(User model);
 }
