@@ -1,18 +1,25 @@
 ﻿document.addEventListener('DOMContentLoaded', function() {
-    function hiddenOpen_Closeclick() {
-        let div = document.getElementsByClassName(".section-body");
-        let x = document.getElementById("logregFormID");
-        if (x.style.display == "none") {
-            // div.classList.add("blur-active");
+    function hiddenOpen_Closeclick(container) {
+        let x = document.querySelector(container);
+        if (x.style.display === "none") {
             x.style.display = "grid";
-        } else {
-            // div.classList.remove("blur-active");
+        } 
+        else {
             x.style.display = "none";
         }
     }
 
-    document.getElementById("click-to-hide").addEventListener("click", hiddenOpen_Closeclick);
-    document.querySelector(".overlay").addEventListener("click", hiddenOpen_Closeclick);
+    document.querySelector("#click-to-hide").addEventListener("click", function () {
+        hiddenOpen_Closeclick(".container-log-reg")
+        hiddenOpen_Closeclick("#logregFormID")
+    });
+    document.querySelector(".overlay").addEventListener("click", function () {
+        hiddenOpen_Closeclick(".container-log-reg")
+    });
+    document.querySelector(".button_confirm_close").addEventListener("click", function () {
+        hiddenOpen_Closeclick(".confirm-email-container")
+        hiddenOpen_Closeclick("#logregFormID")
+    });
 
     const signInBtn = document.querySelector('.signin-btn');
     const signUpBtn = document.querySelector('.signup-btn');
@@ -89,8 +96,10 @@
                     cleaningAndClosingForm(form, errorContainer);
 
                     console.log('Успешный ответ:', data);
+
+                    hiddenOpen_Closeclick(".confirm-email-container");
                     
-                    location.reload();
+                    confirmEmail(data);
                 })
                 .catch(err => {
                     displayErrors(err, errorContainer);
@@ -135,7 +144,31 @@
                 form[key].value = ''; // Сброс значений полей формы
             }
         }
-        hiddenOpen_Closeclick();
+        hiddenOpen_Closeclick(".container-log-reg");
+    }
+
+    function confirmEmail(body) {
+        const confirmButton = document.querySelector(".send_confirm");
+        const oldHandler = confirmButton.onclick;
+        confirmButton.removeEventListener("click", oldHandler);
+        const errorContainer = document.getElementById("error-messages-confirm-code");
+        
+        confirmButton.addEventListener('click', function () {
+                body.CodeConfirm = document.getElementById('code_confirm').value;
+                const requestURL = 'Home/ConfirmEmail';
+
+                sendRequest('POST', requestURL, body)
+                    .then(data => {
+                        console.log("Код подтверждения: ", data);
+                        hiddenOpen_Closeclick(".confirm-email-container");
+                        location.reload();
+                    })
+                    .catch(err => {
+                        displayErrors(err, errorContainer);
+                        console.log(err);
+                    });
+        });
     }
 });
+
 

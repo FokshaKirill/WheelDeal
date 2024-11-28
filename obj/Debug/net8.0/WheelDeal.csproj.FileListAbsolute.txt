@@ -284,3 +284,16 @@ G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\refint\Whe
 G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\WheelDeal.pdb
 G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\WheelDeal.genruntimeconfig.cache
 G:\Study\GitHub\Practica November-December\WheelDeal\obj\Debug\net8.0\ref\WheelDeal.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\FluentValidation.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\MailKit.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\MimeKit.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.Configuration.UserSecrets.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll

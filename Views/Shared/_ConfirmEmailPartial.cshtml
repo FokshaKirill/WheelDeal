@@ -1,0 +1,16 @@
+﻿@model WheelDeal.Domain.ViewModels.LogAndReg.ConfirmEmailViewModel
+
+<div class="confirm-email-container" style="display: none;">
+    <div class="confirm-email-form">
+        <div class="form_title">Регистрация</div>
+            <p style="color: #333;">На указанную почту отправлено письмо с кодом подтверждения</p>
+            <input type="text" placeholder="Код подтверждения" id="code_confirm"/> 
+            <div class="button_confirm_container">
+                <div class="button_confirm send_confirm">Отправить</div>
+                <div class="button_confirm red button_confirm_close">Закрыть</div> 
+            </div>
+        
+            <div id="error-messages-confirm-code"></div>
+        <p class="warning">При закрытии данной формы Регистрация НЕ будет завершена </p> </div>
+    <div class="overlay" style="display: none;"></div>
+</div>

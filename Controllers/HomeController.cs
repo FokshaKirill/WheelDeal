@@ -88,16 +88,13 @@ public class HomeController : Controller
                 {
                     var user = _mapper.Map<User>(model);
 
-                    var response = await _accountService.Register(user);
-                    if (response.StatusCode == Domain.Database.Responses.StatusCode.OK)
-                    {
-                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                            new ClaimsPrincipal(response.Data));
-                        
-                        return Ok(model);  
-                    }
+                    var confirm = _mapper.Map<ConfirmEmailViewModel>(model);
                     
-                    ModelState.AddModelError("", response.Description);
+                    var code = await _accountService.Register(user);
+
+                    confirm.GeneratedCode = code.Data;
+                    
+                    return Ok(confirm);
                 }
                 
                 var errors = ModelState.Values.SelectMany(v => v.Errors)
@@ -106,6 +103,30 @@ public class HomeController : Controller
                 return BadRequest(errors); // Возвращаем ошибки 400 Bad Request с сообщениями об ошибках
             }
 
+            [HttpPost]
+            public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailViewModel confirmEmailModel)
+            {
+                var user = _mapper.Map<User>(confirmEmailModel);
+                
+                var response = await _accountService.ConfirmEmail(user, confirmEmailModel.GeneratedCode, confirmEmailModel.CodeConfirm);
+
+                if (response.StatusCode == Domain.Database.Responses.StatusCode.OK)
+                {
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(response.Data));
+                    
+                    return Ok(confirmEmailModel);
+                }
+                
+                ModelState.AddModelError("", response.Description);
+
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+                
+                return BadRequest(errors);
+            }
+            
             [AutoValidateAntiforgeryToken]
             public async Task<IActionResult> Logout()
             {

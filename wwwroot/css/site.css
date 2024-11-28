@@ -47,6 +47,12 @@ p {
   align-self: center;
 }
 
+button:hover {
+  color: #fff;
+  background-color: #000000;
+  transition: all 0.1s ease-in-out;
+}
+
 a {
   color: white;
 }
@@ -379,11 +385,6 @@ body {
   transition: all 250ms ease;
 }
 
-.message-button .button:hover {
-  color: #fff;
-  background-color: #000000;
-}
-
 /* Стили для футера */
 footer {
   width: 100%;
@@ -482,6 +483,28 @@ footer .footer-right a {
  -----------------------------*/
 
 
+.carousel_item {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 20s ease-in-out;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0%, 0); }
+  10% { transform: translate(-76.5%, 0); }
+  20% { transform: translate(-153%, 0); }
+  30% { transform: translate(-229.5%, 0); }
+  40% { transform: translate(-306%, 0); }
+  50% { transform: translate(-382.5%, 0); }
+  60% { transform: translate(-459%, 0); }
+  70% { transform: translate(-535.5%, 0); }
+  80% { transform: translate(-612%, 0); }
+  90% { transform: translate(-688.5%, 0); }
+  100% { transform: translate(-765%, 0); }
+}
+
 .carousel-container {
   display: flex;
   flex-wrap: nowrap;
@@ -509,8 +532,8 @@ footer .footer-right a {
   background-size: cover;
   background-attachment: fixed;
   background-color: white;
-  border-radius: 50px;
-  padding: 16px;
+  border-radius: 45px;
+  padding: 32px;
 }
 .carousel_text {
   position: absolute;

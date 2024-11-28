@@ -6,7 +6,7 @@ namespace WheelDeal.Domain.Helpers;
 
 public static class AuthenticateUserHelper
 {
-    public static ClaimsIdentity Authenticate(UserDb user)
+    public static ClaimsIdentity Authenticate(User user)
     {
         var claims = new List<Claim>
         {

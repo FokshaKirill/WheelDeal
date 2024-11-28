@@ -63,7 +63,8 @@
                 </div>
             </div>
         </nav>
-        @await Html.PartialAsync("LogReg")
+        @await Html.PartialAsync("_LogReg")
+        @await Html.PartialAsync("_ConfirmEmailPartial")
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -96,7 +97,8 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/dropdownList.js" asp-append-version="true"></script>
     <script src="~/js/logreg.js" asp-append-version="true"></script>
-    <script src="~/js/swiper.js" asp-append-version="true"></script>
+    @* <script src="~/js/swiper.js" asp-append-version="true"></script> *@
+    <script src="~/js/yandexMaps.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
