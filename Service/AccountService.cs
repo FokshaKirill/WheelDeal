@@ -88,45 +88,54 @@ public class AccountService : IAccountService
         {
                 try
                 {
-                        Random random = new Random();
-                        string confirmationCode =
-                                $"{random.Next(10)}{random.Next(10)}{random.Next(10)}{random.Next(10)}{random.Next(10)}{random.Next(10)}{random.Next(10)}{random.Next(10)}";
+                        // Выполняем валидацию данных пользователя сразу при регистрации
+                        await _validationRules.ValidateAndThrowAsync(model);
 
+                        // Проверяем, существует ли пользователь с такой почтой
                         if (await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email) != null)
                         {
-                                return new BaseResponse<string>()
+                                return new BaseResponse<string>
                                 {
-                                        Description = "Пользователь с такой почтой уже есть",
+                                        Description = "Пользователь с такой почтой уже существует",
+                                        StatusCode = StatusCode.BadRequest // Код конфликта
                                 };
                         }
-                        
+
+                        // Генерация кода подтверждения
+                        Random random = new Random();
+                        string confirmationCode = $"{random.Next(100000, 999999)}"; // Генерация 6-значного кода
+
+                        // Отправляем письмо с кодом подтверждения
                         await SendEmail(model.Email, confirmationCode);
 
-                        return new BaseResponse<string>()
+                        return new BaseResponse<string>
                         {
-                                Data = confirmationCode,
-                                Description = "Письмо отправлено",
+                                Data = confirmationCode, // Возвращаем код для дальнейшего использования
+                                Description = "Письмо с кодом подтверждения отправлено",
                                 StatusCode = StatusCode.OK
                         };
                 }
                 catch (ValidationException e)
                 {
-                        var errorMessages = string.Join("; ", e.Errors.Select(x => x.ErrorMessage));
-                        return new BaseResponse<string>()
+                        // Сбор ошибок валидации и возврат на клиент
+                        var errorMessages = e.Errors.Select(x => x.ErrorMessage).ToList();
+                        return new BaseResponse<string>
                         {
-                                Description = errorMessages,
-                                StatusCode = StatusCode.BadRequest
+                                Description = "Ошибки валидации: " + string.Join("; ", errorMessages),
+                                StatusCode = StatusCode.BadRequest // Код ошибки запроса
                         };
                 }
                 catch (Exception e)
                 {
-                        return new BaseResponse<string>()
+                        // Обработка остальных исключений
+                        return new BaseResponse<string>
                         {
-                                Description = e.Message,
+                                Description = "Ошибка на сервере: " + e.Message,
                                 StatusCode = StatusCode.InternalServerError
                         };
                 }
         }
+
 
         public async Task SendEmail(string email, string confirmationCode) 
         {
@@ -178,7 +187,7 @@ public class AccountService : IAccountService
                         catch (Exception ex)
                         {
                                 Console.WriteLine($"Error: {ex.Message}");
-                                throw; // Перебросьте исключение для дальнейшей обработки.
+                                throw;
                         }
                 }
         }
@@ -187,36 +196,40 @@ public class AccountService : IAccountService
         {
                 try
                 {
+                        // Проверяем соответствие введенного кода
                         if (code != confirmCode)
-                                throw new Exception("Неверный код! Регистрация не выполнена.");
+                        {
+                                throw new Exception("Неверный код подтверждения!");
+                        }
 
-                        model.ImagePath = "/images/user.png";
-                        model.CreatedAt = DateTime.Now;
+                        // Генерируем дату создания и хэшируем пароль
+                        model.ImagePath = @"G:\Study\GitHub\Practica November-December\WheelDeal\wwwroot\images\avatars\default.png";
+                        model.CreatedAt = DateTime.Now.ToUniversalTime();
                         model.Password = HashPasswordHelper.HashPassword(model.Password);
 
-                        await _validationRules.ValidateAndThrowAsync(model);
-
+                        // Создаем пользователя в базе данных
                         var userdb = _mapper.Map<UserDb>(model);
-
                         await _userStorage.Add(userdb);
 
+                        // Аутентифицируем пользователя
                         var result = AuthenticateUserHelper.Authenticate(model);
 
-                        return new BaseResponse<ClaimsIdentity>()
+                        return new BaseResponse<ClaimsIdentity>
                         {
                                 Data = result,
-                                Description = "Объект добавился",
+                                Description = "Email успешно подтвержден, регистрация завершена.",
                                 StatusCode = StatusCode.OK
                         };
                 }
                 catch (Exception ex)
                 {
-                        return new BaseResponse<ClaimsIdentity>()
+                        return new BaseResponse<ClaimsIdentity>
                         {
                                 Description = ex.Message,
                                 StatusCode = StatusCode.InternalServerError
                         };
                 }
         }
+
 }
  

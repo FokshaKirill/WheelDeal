@@ -295,6 +295,10 @@ body {
     border: black 1px solid; padding: 2px;
 }
 
+.blur {
+  filter: blur(15px);
+}
+
 .section-body.blur-active {
   filter: blur(15px);
 }

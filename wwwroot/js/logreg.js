@@ -8,17 +8,28 @@
             x.style.display = "none";
         }
     }
+    
+   function toggleBlur(container) {
+        let x = document.querySelector(container);
+        if (!x.classList.contains("blur")) {
+            x.classList.add("blur");
+        }
+        else {
+            x.classList.remove("blur");
+        }
+    }
 
     document.querySelector("#click-to-hide").addEventListener("click", function () {
-        hiddenOpen_Closeclick(".container-log-reg")
         hiddenOpen_Closeclick("#logregFormID")
+        hiddenOpen_Closeclick(".overlay")
     });
     document.querySelector(".overlay").addEventListener("click", function () {
-        hiddenOpen_Closeclick(".container-log-reg")
+        hiddenOpen_Closeclick("#logregFormID")
+        hiddenOpen_Closeclick(".overlay")
     });
     document.querySelector(".button_confirm_close").addEventListener("click", function () {
         hiddenOpen_Closeclick(".confirm-email-container")
-        hiddenOpen_Closeclick("#logregFormID")
+        toggleBlur(".container-log-reg");
     });
 
     const signInBtn = document.querySelector('.signin-btn');
@@ -98,6 +109,7 @@
                     console.log('Успешный ответ:', data);
 
                     hiddenOpen_Closeclick(".confirm-email-container");
+                    toggleBlur(".container-log-reg");
                     
                     confirmEmail(data);
                 })
@@ -128,7 +140,7 @@
 
 // Функция для отображения ошибок
     function displayErrors(errors, errorContainer) {
-        errorContainer.innerHTML = ''; // Очистить предыдущие ошибки
+        errorContainer.innerHTML = ''; 
         errors.forEach(error => {
             const errorMessage = document.createElement('div');
             errorMessage.classList.add('error');
@@ -144,7 +156,6 @@
                 form[key].value = ''; // Сброс значений полей формы
             }
         }
-        hiddenOpen_Closeclick(".container-log-reg");
     }
 
     function confirmEmail(body) {

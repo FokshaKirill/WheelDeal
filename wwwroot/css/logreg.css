@@ -8,7 +8,7 @@
 
 #logregFormID {
     z-index: 801;
-    padding: 2.5% 22%;
+    padding: 12.5vh 22%;
     top: 0;
     align-content: flex-start;
     backdrop-filter: blur(25px);
@@ -24,7 +24,7 @@
 
 .container-log-reg,
 .confirm-email-container{
-    display: none;
+    display: grid;
     width: 540px;
     height: 720px;
     align-content: center;
@@ -275,4 +275,6 @@ span {
 
 .confirm-email-container {
     justify-self: center;
+    position: fixed;
+    width: 100%;
 }

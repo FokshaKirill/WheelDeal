@@ -93,6 +93,10 @@
       "PackagePath": "staticwebassets\\images\\about.jpg"
     },
     {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\avatars\\default.png",
+      "PackagePath": "staticwebassets\\images\\avatars\\default.png"
+    },
+    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\avatars\\den.jpg",
       "PackagePath": "staticwebassets\\images\\avatars\\den.jpg"
     },

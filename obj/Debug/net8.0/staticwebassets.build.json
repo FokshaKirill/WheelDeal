@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "miCR5UsZepqPWIeJTRarJDlhXJNZ7vH0jvyARYIMFS4=",
+  "Hash": "qHD2wN4zYknLQe9VLHJPZqIh0f3VpPE3dmzYJWmZ1Hw=",
   "Source": "WheelDeal",
   "BasePath": "_content/WheelDeal",
   "Mode": "Default",
@@ -471,6 +471,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\about.jpg"
+    },
+    {
+      "Identity": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\avatars\\default.png",
+      "SourceId": "WheelDeal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\",
+      "BasePath": "_content/WheelDeal",
+      "RelativePath": "images/avatars/default.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\avatars\\default.png"
     },
     {
       "Identity": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\avatars\\den.jpg",
