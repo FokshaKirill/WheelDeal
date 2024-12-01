@@ -37,6 +37,8 @@ public class AccountService : IAccountService
         {
                 try
                 {
+                        model.Login = "Example";
+                        
                         await _validationRules.ValidateAndThrowAsync(model);
 
                         var userdb = await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email);
@@ -88,46 +90,41 @@ public class AccountService : IAccountService
         {
                 try
                 {
-                        // Выполняем валидацию данных пользователя сразу при регистрации
+                        // Проверка валидности модели
                         await _validationRules.ValidateAndThrowAsync(model);
 
-                        // Проверяем, существует ли пользователь с такой почтой
-                        if (await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email) != null)
+                        // Проверяем, есть ли уже пользователь с таким email
+                        if (await _userStorage.GetAll().AnyAsync(x => x.Email == model.Email))
                         {
                                 return new BaseResponse<string>
                                 {
                                         Description = "Пользователь с такой почтой уже существует",
-                                        StatusCode = StatusCode.BadRequest // Код конфликта
+                                        StatusCode = StatusCode.BadRequest
                                 };
                         }
 
-                        // Генерация кода подтверждения
+                        // Генерация и отправка кода подтверждения
                         Random random = new Random();
-                        string confirmationCode = $"{random.Next(100000, 999999)}"; // Генерация 6-значного кода
-
-                        // Отправляем письмо с кодом подтверждения
+                        var confirmationCode = $"{random.Next(100000, 999999)}";
                         await SendEmail(model.Email, confirmationCode);
 
                         return new BaseResponse<string>
                         {
-                                Data = confirmationCode, // Возвращаем код для дальнейшего использования
+                                Data = confirmationCode,
                                 Description = "Письмо с кодом подтверждения отправлено",
                                 StatusCode = StatusCode.OK
                         };
                 }
                 catch (ValidationException e)
                 {
-                        // Сбор ошибок валидации и возврат на клиент
-                        var errorMessages = e.Errors.Select(x => x.ErrorMessage).ToList();
                         return new BaseResponse<string>
                         {
-                                Description = "Ошибки валидации: " + string.Join("; ", errorMessages),
-                                StatusCode = StatusCode.BadRequest // Код ошибки запроса
+                                Description = string.Join("; ", e.Errors.Select(x => x.ErrorMessage)),
+                                StatusCode = StatusCode.BadRequest
                         };
                 }
                 catch (Exception e)
                 {
-                        // Обработка остальных исключений
                         return new BaseResponse<string>
                         {
                                 Description = "Ошибка на сервере: " + e.Message,
@@ -203,8 +200,6 @@ public class AccountService : IAccountService
                         }
 
                         // Генерируем дату создания и хэшируем пароль
-                        model.ImagePath = @"G:\Study\GitHub\Practica November-December\WheelDeal\wwwroot\images\avatars\default.png";
-                        model.CreatedAt = DateTime.Now.ToUniversalTime();
                         model.Password = HashPasswordHelper.HashPassword(model.Password);
 
                         // Создаем пользователя в базе данных
@@ -231,5 +226,44 @@ public class AccountService : IAccountService
                 }
         }
 
+        public async Task<BaseResponse<ClaimsIdentity>> IsCreatedAccount(User model)
+        {
+                try
+                {
+                        var userDb = new UserDb();
+                        if (await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email) == null)
+                        {
+                                model.Password = "google";
+                                
+                                userDb = _mapper.Map<UserDb>(model);
+                                
+                                await _userStorage.Add(userDb);
+                                
+                                var resultRegister = AuthenticateUserHelper.Authenticate(model);
+                                return new BaseResponse<ClaimsIdentity>()
+                                {
+                                        Data = resultRegister,
+                                        Description = "Объект добавился",
+                                        StatusCode = StatusCode.OK
+                                };
+                        }
+                        
+                        var resultLogin = AuthenticateUserHelper.Authenticate(model);
+                        return new BaseResponse<ClaimsIdentity>()
+                        {
+                                Data = resultLogin,
+                                Description = "Объект уже был создан",
+                                StatusCode = StatusCode.OK
+                        };
+                }
+                catch (Exception ex)
+                {
+                        return new BaseResponse<ClaimsIdentity>()
+                        {
+                                Description = ex.Message,
+                                StatusCode = StatusCode.InternalServerError
+                        };
+                }
+        }
 }
  

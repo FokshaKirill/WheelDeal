@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1Vr464a94aY=",
+  "dgSpecHash": "3WpZsNALDkI=",
   "success": true,
   "projectFilePath": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\WheelDeal.csproj",
   "expectedPackageFiles": [
@@ -65,6 +65,7 @@
     "C:\\Users\\foksa\\.nuget\\packages\\jquery\\3.7.1\\jquery.3.7.1.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\jquery.validation\\1.21.0\\jquery.validation.1.21.0.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\mailkit\\4.8.0\\mailkit.4.8.0.nupkg.sha512",
+    "C:\\Users\\foksa\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.11\\microsoft.aspnetcore.authentication.google.8.0.11.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.24\\microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\foksa\\.nuget\\packages\\microsoft.build\\17.10.4\\microsoft.build.17.10.4.nupkg.sha512",

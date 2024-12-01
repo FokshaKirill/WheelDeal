@@ -297,3 +297,4 @@ G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.
 G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
 G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+G:\Study\GitHub\Practica November-December\WheelDeal\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll

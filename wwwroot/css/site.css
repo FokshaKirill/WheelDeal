@@ -128,10 +128,12 @@ body {
 .section-side {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 7%;
 }
 
 .section-side img {
-  width: 75%;
+  width: 100%;
   border-radius: 25px;
   resize: horizontal;
   box-shadow: rgba(0,0,0,0.5) 0 20px 15px -15px;
@@ -140,7 +142,6 @@ body {
 .section-left {
   display: flex;
   width: 40%;
-  margin: 0 7% 3% 3%;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -150,7 +151,6 @@ body {
 .section-right {
   display: flex;
   width: 40%;
-  margin: 0 3% 3% 7%;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -208,7 +208,7 @@ body {
 .serviceItem {
   width: 33%;
   aspect-ratio: 4/3;
-  padding: 0 10px;
+  padding: 15px;
   justify-content: center;
   align-content: center;
   text-align: center;
@@ -486,50 +486,56 @@ footer .footer-right a {
  * DropDown Menu End
  -----------------------------*/
 
-
-.carousel_item {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shake 20s ease-in-out;
-
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-432px * 11));
+  }
 }
 
-@keyframes shake {
-  0% { transform: translate(0%, 0); }
-  10% { transform: translate(-76.5%, 0); }
-  20% { transform: translate(-153%, 0); }
-  30% { transform: translate(-229.5%, 0); }
-  40% { transform: translate(-306%, 0); }
-  50% { transform: translate(-382.5%, 0); }
-  60% { transform: translate(-459%, 0); }
-  70% { transform: translate(-535.5%, 0); }
-  80% { transform: translate(-612%, 0); }
-  90% { transform: translate(-688.5%, 0); }
-  100% { transform: translate(-765%, 0); }
-}
-
-.carousel-container {
-  display: flex;
-  flex-wrap: nowrap;
-  height: 650px;
-  width: 100%;
-  overflow: initial;
-  background-color: #e2ddff;
-  padding: 35px 0;
-  border-radius: 25px;
-}
-.carousel_items {
-  display: flex;
-  flex-wrap: nowrap;
+.slider {
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
   overflow: hidden;
-  min-width: 100%;
-  height: 100%;
-}
-.carousel_item {
   position: relative;
-  min-width: 400px;
+  width: 100%; 
+  height: 700px;
+  background-color: #e2ddff;
+  border-radius: 25px;
+  padding: 35px 0;
+}
+
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, rgba(226, 221, 255, 1) 0%, rgba(226, 221, 255, 0) 100%);
+  content: "";
   height: 100%;
+  position: absolute;
+  width: 225px;
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider .slide-track {
+  animation: scroll 25s linear infinite;
+  display: flex;
+  width: calc(450px * 22);
+}
+
+.slider .slide {
+  min-width: 450px;
+  height: 630px;
   margin-right: 25px;
   transition: all 1s ease-out;
   background-repeat: no-repeat;
@@ -539,17 +545,32 @@ footer .footer-right a {
   border-radius: 45px;
   padding: 32px;
 }
-.carousel_text {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translate(-50%);
-  padding: 0.5rem 1rem;
-  color: black;
+
+.slider .slide div {
+  max-width: 128px;
+  align-content: center;
+  align-items: center;
+  float: left;
 }
 
-.carousel_item img {
-  width: 128px;
+.slider .slide img {
+  max-width: 128px;
   aspect-ratio: 1/1;
   border-radius: 64px;
+  margin: 0;
+}
+
+.slider .slide h1 {
+  font-size: 32px;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 0 20px;
+  float: left;
+}
+
+.slider .slide h2 {
+  font-size: 24px;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 0 20px;
 }

@@ -12,6 +12,7 @@
           "CSharpFunctionalExtensions": "3.2.0",
           "FluentValidation.AspNetCore": "11.3.0",
           "MailKit": "4.8.0",
+          "Microsoft.AspNetCore.Authentication.Google": "8.0.11",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.Design": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
@@ -676,6 +677,14 @@
           "lib/net8.0/MailKit.dll": {
             "assemblyVersion": "4.8.0.0",
             "fileVersion": "4.8.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/8.0.11": {
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "8.0.11.0",
+            "fileVersion": "8.0.1124.52116"
           }
         }
       },
@@ -2787,6 +2796,13 @@
       "sha512": "sha512-zZ1UoM4FUnSFUJ9fTl5CEEaejR0DNP6+FDt1OfXnjg4igZntcir1tg/8Ufd6WY5vrpmvToAjluYqjVM24A+5lA==",
       "path": "mailkit/4.8.0",
       "hashPath": "mailkit.4.8.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/8.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XYjmQF9ggDnpXds7aH5CgW2SWVmubJ/F6NOnDwDseMYnEBZSwhstkY9qZszd6wsAhpW1HeT9yO9nZqFPRMiDAA==",
+      "path": "microsoft.aspnetcore.authentication.google/8.0.11",
+      "hashPath": "microsoft.aspnetcore.authentication.google.8.0.11.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "type": "package",

@@ -89,6 +89,10 @@
       "PackagePath": "staticwebassets\\fonts\\Montserrats\\Montserrat-ThinItalic.ttf"
     },
     {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\ImageUser\\foksakirill@gmail.com-avatar.jpg",
+      "PackagePath": "staticwebassets\\images\\ImageUser\\foksakirill@gmail.com-avatar.jpg"
+    },
+    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\about.jpg",
       "PackagePath": "staticwebassets\\images\\about.jpg"
     },
@@ -143,6 +147,10 @@
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\gmail.png",
       "PackagePath": "staticwebassets\\images\\gmail.png"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\google.png",
+      "PackagePath": "staticwebassets\\images\\google.png"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\header1.jpg",

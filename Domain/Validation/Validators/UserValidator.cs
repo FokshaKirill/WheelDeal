@@ -14,8 +14,8 @@ public class UserValidator : AbstractValidator<User>
         
         RuleFor(user => user.Password)
             .NotEmpty().WithMessage(ValidationMessages.PasswordRequired)
-            .MinimumLength(6).WithMessage(ValidationMessages.PasswordMinLength)
-            .Matches(RegexPatterns.PasswordRegex).WithMessage(ValidationMessages.PasswordInvalid);
+            .MinimumLength(6).WithMessage(ValidationMessages.PasswordMinLength);
+            // .Matches(RegexPatterns.PasswordRegex).WithMessage(ValidationMessages.PasswordInvalid);
         
         RuleFor(user => user.Email)
             .NotEmpty().WithMessage(ValidationMessages.EmailRequired)

@@ -88,35 +88,36 @@
 
             const errorContainer = document.getElementById('error-messages-signup');
 
-            const form = {
-                login: document.getElementById("signup_login"),
-                email: document.getElementById("signup_email"),
-                password: document.getElementById("signup_password"),
-                passwordConfirm: document.getElementById("confirm_password"),
-            }
 
-            const body = {
-                login: form.login.value,
-                email: form.email.value,
-                password: form.password.value,
-                passwordConfirm: form.passwordConfirm.value,
-            }
+                const form = {
+                    login: document.getElementById("signup_login"),
+                    email: document.getElementById("signup_email"),
+                    password: document.getElementById("signup_password"),
+                    passwordConfirm: document.getElementById("confirm_password"),
+                }
 
-            sendRequest('POST', requestURL, body)
-                .then(data => {
-                    cleaningAndClosingForm(form, errorContainer);
+                const body = {
+                    login: form.login.value,
+                    email: form.email.value,
+                    password: form.password.value,
+                    passwordConfirm: form.passwordConfirm.value,
+                }
 
-                    console.log('Успешный ответ:', data);
+                sendRequest('POST', requestURL, body)
+                    .then(data => {
+                        cleaningAndClosingForm(form, errorContainer);
 
-                    hiddenOpen_Closeclick(".confirm-email-container");
-                    toggleBlur(".container-log-reg");
-                    
-                    confirmEmail(data);
-                })
-                .catch(err => {
-                    displayErrors(err, errorContainer);
-                    console.log(err);
-                });
+                        console.log('Успешный ответ:', data);
+
+                        hiddenOpen_Closeclick(".confirm-email-container");
+                        toggleBlur(".container-log-reg");
+
+                        confirmEmail(data);
+                    })
+                    .catch(err => {
+                        displayErrors(err, errorContainer);
+                        console.log(err);
+                    });
         });
     }
 
@@ -138,7 +139,6 @@
         });
     }
 
-// Функция для отображения ошибок
     function displayErrors(errors, errorContainer) {
         errorContainer.innerHTML = ''; 
         errors.forEach(error => {
@@ -178,6 +178,16 @@
                         displayErrors(err, errorContainer);
                         console.log(err);
                     });
+        });
+    }
+    
+    const google = document.querySelectorAll('.google');
+
+    if (google) {
+        google.forEach(btn => {
+            btn.addEventListener('click', function () {
+                window.location.href = `/Home/AuthenticationGoogle?returnUrl=${encodeURIComponent(window.location.href)}`;
+            });
         });
     }
 });

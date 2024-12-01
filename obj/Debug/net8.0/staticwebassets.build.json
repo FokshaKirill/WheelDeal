@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qHD2wN4zYknLQe9VLHJPZqIh0f3VpPE3dmzYJWmZ1Hw=",
+  "Hash": "xHm2ACK0HPUI7l/7mIw+G4qk7AAS2++yL0MESDkEVec=",
   "Source": "WheelDeal",
   "BasePath": "_content/WheelDeal",
   "Mode": "Default",
@@ -720,6 +720,25 @@
       "OriginalItemSpec": "wwwroot\\images\\gmail.png"
     },
     {
+      "Identity": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\google.png",
+      "SourceId": "WheelDeal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\",
+      "BasePath": "_content/WheelDeal",
+      "RelativePath": "images/google.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\google.png"
+    },
+    {
       "Identity": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\header1.jpg",
       "SourceId": "WheelDeal",
       "SourceType": "Discovered",
@@ -775,6 +794,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\hondaAccord.jpeg"
+    },
+    {
+      "Identity": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\ImageUser\\foksakirill@gmail.com-avatar.jpg",
+      "SourceId": "WheelDeal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\",
+      "BasePath": "_content/WheelDeal",
+      "RelativePath": "images/ImageUser/foksakirill@gmail.com-avatar.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ImageUser\\foksakirill@gmail.com-avatar.jpg"
     },
     {
       "Identity": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\inst.png",
