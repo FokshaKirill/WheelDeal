@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WheelDeal.Domain.Database.ModelsDb;
 
+[Table("categories")]
 public class CategoryDb
 {
     [Key]

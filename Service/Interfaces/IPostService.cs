@@ -5,5 +5,5 @@ namespace WheelDeal.Service.Interfaces;
 
 public interface IPostService
 {
-    BaseResponse<List<Post>> GetAllPostsByNameCategory(Guid id);
+    BaseResponse<List<Post>> GetAllPostsByIdCategory(Guid id);
 }

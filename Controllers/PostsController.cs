@@ -30,7 +30,7 @@ public class PostsController : Controller
 
     public IActionResult ListOfPosts(Guid id)
     {
-        var result = _postService.GetAllPostsByNameCategory(id);
+        var result = _postService.GetAllPostsByIdCategory(id);
         ListOfPostsViewModel listPosts = new ListOfPostsViewModel
         {
             Posts = _mapper.Map<List<PostForPostsViewModel>>(result.Data),
