@@ -25,11 +25,14 @@ public class PostService : IPostService
         _mapper = mapperConfiguration.CreateMapper();
     }
     
-    public BaseResponse<List<Post>> GetAllPostsByNameCategory(Guid id)
+    public BaseResponse<List<Post>> GetAllPostsByIdCategory(Guid id)
     {
         try
         {
-            var postsDb = _postStorage.GetAll().Where(x => id == x.Id).OrderBy(p => p.CreatedAt).ToList();
+            var postsDb = _postStorage.GetAll()
+                .Where(post => post.Id.Equals(id))  // Или другие варианты сравнения
+                .OrderBy(p => p.CreatedAt)
+                .ToList();
             var result = _mapper.Map<List<Post>>(postsDb);
             if (result.Count == 0)
                 return new BaseResponse<List<Post>>()
