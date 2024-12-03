@@ -2,9 +2,16 @@
 
 public class Rate
 {
-    public int Id { get; private set; }   
-    public int UserId { get; set; }
-    public string? Comment { get; set; }
+    public Guid Id { get; set; }
+    public Guid UserId { get; set; }
+    
+    public User User { get; set; }  // Навигационное свойство
+
+    public Guid PostId { get; set; }
+    
+    public Post Post { get; set; }  // Навигационное свойство
+
+    public string Comment { get; set; }
+    public int Points { get; set; }
     public DateTime Date { get; set; }
-    public int? Points { get; set; }
 }

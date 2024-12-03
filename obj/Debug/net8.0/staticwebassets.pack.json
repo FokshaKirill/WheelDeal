@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WheelDeal.bundle.scp.css"
     },
     {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\css\\autopark.css",
+      "PackagePath": "staticwebassets\\css\\autopark.css"
+    },
+    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\css\\logreg.css",
       "PackagePath": "staticwebassets\\css\\logreg.css"
     },
@@ -97,6 +101,10 @@
       "PackagePath": "staticwebassets\\images\\about.jpg"
     },
     {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\autopark.jpg",
+      "PackagePath": "staticwebassets\\images\\autopark.jpg"
+    },
+    {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\avatars\\default.png",
       "PackagePath": "staticwebassets\\images\\avatars\\default.png"
     },
@@ -143,6 +151,30 @@
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\carTech.jpg",
       "PackagePath": "staticwebassets\\images\\carTech.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\categories\\categories.jpg",
+      "PackagePath": "staticwebassets\\images\\categories\\categories.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\categories\\convertible.jpg",
+      "PackagePath": "staticwebassets\\images\\categories\\convertible.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\categories\\coupe.jpg",
+      "PackagePath": "staticwebassets\\images\\categories\\coupe.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\categories\\hatchback.jpg",
+      "PackagePath": "staticwebassets\\images\\categories\\hatchback.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\categories\\sedan.jpg",
+      "PackagePath": "staticwebassets\\images\\categories\\sedan.jpg"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\categories\\suv.jpg",
+      "PackagePath": "staticwebassets\\images\\categories\\suv.jpg"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\gmail.png",
@@ -203,6 +235,10 @@
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\smoke_orb2.gif",
       "PackagePath": "staticwebassets\\images\\smoke_orb2.gif"
+    },
+    {
+      "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\strahovanie.jpg",
+      "PackagePath": "staticwebassets\\images\\strahovanie.jpg"
     },
     {
       "Id": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\wwwroot\\images\\tg.png",

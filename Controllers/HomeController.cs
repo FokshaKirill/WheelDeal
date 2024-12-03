@@ -1,20 +1,15 @@
 using System.Diagnostics;
-using System.Net;
 using System.Security.Claims;
 using AutoMapper;
-using CSharpFunctionalExtensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Diagnostics;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore;
 using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.ViewModels.LogAndReg;
 using WheelDeal.Models;
-using WheelDeal.Service;
 using WheelDeal.Service.Interfaces;
+using WheelDeal.Service.Realizations;
 
 namespace WheelDeal.Controllers;
 
@@ -55,7 +50,7 @@ public class HomeController : Controller
             return View();
         }
 
-        public IActionResult Countries()
+        public IActionResult Contacts()
         {
             return View();
         }
@@ -87,7 +82,6 @@ public class HomeController : Controller
                 return BadRequest(errors); // Возвращаем ошибки 400 Bad Request с сообщениями об ошибках
             }
             
-            [HttpPost]
             [HttpPost]
             public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
             {

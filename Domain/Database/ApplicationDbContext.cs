@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.Database.ModelsDb;
 
 namespace WheelDeal.Domain.Database;
@@ -8,6 +9,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<UserDb> UsersDb { get; set; }
     public DbSet<RateDb> RatesDb { get; set; }
     public DbSet<PostDb> PostsDb { get; set; }
+    public DbSet<CategoryDb> CategoriesDb { get; set; }
     public DbSet<CarDb> CarsDb { get; set; }
     
     private readonly IConfiguration Configuration;
@@ -45,7 +47,21 @@ public class ApplicationDbContext : DbContext
     //             .WithMany();
     //     });
     // }
-    
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<CategoryDb>()
+            .ToTable("categories");
+        modelBuilder.Entity<CarDb>()
+            .ToTable("cars");
+        modelBuilder.Entity<UserDb>()
+            .ToTable("users");
+        modelBuilder.Entity<RateDb>()
+            .ToTable("rates");
+        modelBuilder.Entity<PostDb>()
+            .ToTable("posts");
+    }
+
     public ILoggerFactory CreateLoggerFactory() => 
         LoggerFactory.Create(builder => {builder.AddConsole();});
 }

@@ -6,48 +6,40 @@ namespace WheelDeal.Domain.Validation.Validators;
 public class CarValidator : AbstractValidator<Car>
 {
     public CarValidator()
-        {
-            RuleFor(car => car.Brand)
-                .NotEmpty().WithMessage(ValidationMessages.BrandRequired)
-                .MaximumLength(50).WithMessage(ValidationMessages.BrandMaxLength);
+    {
+        RuleFor(car => car.Brand)
+            .NotEmpty().WithMessage(ValidationMessages.CarBrandRequired)
+            .Length(1, 50).WithMessage(ValidationMessages.CarBrandLength);
 
-            RuleFor(car => car.Model)
-                .NotEmpty().WithMessage(ValidationMessages.ModelRequired)
-                .MaximumLength(50).WithMessage(ValidationMessages.ModelMaxLength);
+        RuleFor(car => car.Model)
+            .NotEmpty().WithMessage(ValidationMessages.CarModelRequired)
+            .Length(1, 50).WithMessage(ValidationMessages.CarModelLength);
 
-            RuleFor(car => car.Year)
-                .InclusiveBetween(1886, DateTime.Now.Year).WithMessage(string.Format(ValidationMessages.YearRange, DateTime.Now.Year));
+        RuleFor(car => car.Year)
+            .InclusiveBetween(1900, 2100).WithMessage(ValidationMessages.CarYearRange);
 
-            RuleFor(car => car.CarItemId)
-                .GreaterThan(0).WithMessage(ValidationMessages.CarItemIdGreaterThanZero);
+        RuleFor(car => car.PlacesCount)
+            .GreaterThan(0).WithMessage(ValidationMessages.CarPlacesCountPositive);
 
-            RuleFor(car => car.PlacesCount)
-                .InclusiveBetween(1, 9).WithMessage(ValidationMessages.PlacesCountRange);
+        RuleFor(car => car.EngineValue)
+            .InclusiveBetween(0, 10).WithMessage(ValidationMessages.CarEngineValueRange);
 
-            RuleFor(car => car.EngineValue)
-                .GreaterThan(0).WithMessage(ValidationMessages.EngineValueGreaterThanZero);
+        RuleFor(car => car.Mileage)
+            .GreaterThanOrEqualTo(0).WithMessage(ValidationMessages.CarMileageNonNegative);
 
-            RuleFor(car => car.Mileage)
-                .GreaterThanOrEqualTo(0).WithMessage(ValidationMessages.MileageNonNegative);
+        RuleFor(car => car.Body)
+            .Length(0, 20).WithMessage(ValidationMessages.CarBodyLength);
 
-            RuleFor(car => car.Body)
-                .NotEmpty().WithMessage(ValidationMessages.BodyRequired)
-                .MaximumLength(30).WithMessage(ValidationMessages.BodyMaxLength);
+        RuleFor(car => car.Fuel)
+            .Length(0, 20).WithMessage(ValidationMessages.CarFuelLength);
 
-            RuleFor(car => car.Fuel)
-                .NotEmpty().WithMessage(ValidationMessages.FuelRequired)
-                .MaximumLength(20).WithMessage(ValidationMessages.FuelMaxLength);
+        RuleFor(car => car.Transmission)
+            .Length(0, 20).WithMessage(ValidationMessages.CarTransmissionLength);
 
-            RuleFor(car => car.Transmission)
-                .NotEmpty().WithMessage(ValidationMessages.TransmissionRequired)
-                .MaximumLength(20).WithMessage(ValidationMessages.TransmissionMaxLength);
+        RuleFor(car => car.FuelConsumption)
+            .InclusiveBetween(0, 100).WithMessage(ValidationMessages.CarFuelConsumptionRange);
 
-            RuleFor(car => car.FuelConsumption)
-                .GreaterThanOrEqualTo(0).WithMessage(ValidationMessages.FuelConsumptionNonNegative);
-
-            RuleFor(car => car.Power)
-                .GreaterThan(0).WithMessage(ValidationMessages.PowerGreaterThanZero);
-        }
-
+        RuleFor(car => car.Power)
+            .GreaterThan(0).WithMessage(ValidationMessages.CarPowerPositive);
+    }
 }
-

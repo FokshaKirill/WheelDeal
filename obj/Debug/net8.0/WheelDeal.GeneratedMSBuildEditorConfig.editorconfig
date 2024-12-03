@@ -26,12 +26,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\Study\GitHub\Practica November-December\WheelDeal
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/Study/GitHub/Practica November-December/WheelDeal/Views/Categories/ListOfCategories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xMaXN0T2ZDYXRlZ29yaWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Study/GitHub/Practica November-December/WheelDeal/Views/Home/AutoPark.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBdXRvUGFyay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Study/GitHub/Practica November-December/WheelDeal/Views/Home/Countries.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb3VudHJpZXMuY3NodG1s
+[G:/Study/GitHub/Practica November-December/WheelDeal/Views/Home/Contacts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Study/GitHub/Practica November-December/WheelDeal/Views/Home/Index.cshtml]
@@ -40,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/Study/GitHub/Practica November-December/WheelDeal/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Study/GitHub/Practica November-December/WheelDeal/Views/Posts/ListOfPosts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcTGlzdE9mUG9zdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Study/GitHub/Practica November-December/WheelDeal/Views/Shared/Error.cshtml]

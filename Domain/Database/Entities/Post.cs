@@ -2,15 +2,20 @@
 
 public class Post
 {
-    public int Id { get; private set; } 
-    public string? Description { get; set; }
+    public Guid Id { get; set; }
+    public Guid CarId { get; set; }
+    
+    public Car Car { get; set; }  // Навигационное свойство
+
+    public Guid CategoryId { get; set; }
+    
+    public Category Category { get; set; }  // Навигационное свойство
+
+    public string Description { get; set; }
     public decimal Price { get; set; }
-    public List<int> RatesID { get; set; }
-    public int CarID { get; set; }    
+    public bool AvailabilityStatus { get; set; }
+    public DateTime CreatedAt { get; set; }
 
-    // public Car Car { get; set; }
-
-    //
-    // public List<int> CommsID { get; set; }
-    // public List<int> ImgsID { get; set; }
+    // Навигационное свойство для Rate
+    public ICollection<Rate> Rates { get; set; }
 }
