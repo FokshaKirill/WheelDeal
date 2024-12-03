@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using WheelDeal.Domain.ViewModels.LogAndReg
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WheelDeal</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WheelDeal.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/logreg.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/autopark.css" asp-append-version="true" />
     <link rel="shortcut icon" href="/images/logo.png" type="image/png">
     <asp:ScriptManager ID="asm" runat="server" />
 </head>
@@ -28,12 +30,12 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <div>
-                                <a class="nav-link text-dark" id="home" asp-area="" asp-controller="Home" asp-action="AutoPark">AutoPark</a>
+                                <a class="nav-link text-dark" id="autopark" asp-area="" asp-controller="Categories" asp-action="ListOfCategories">AutoPark</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <div>
-                                <a class="nav-link text-dark" id="countries" asp-area="" asp-controller="Home" asp-action="Countries">Countries</a>
+                                <a class="nav-link text-dark" id="countries" asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -85,10 +87,10 @@
         </div>
 
         <div class="footer-right">
-            <a href="#home">Главная</a>
-            <a href="#contact">Контакты</a>
-            <a href="#countries">Страны</a>
-            <a href="#services">Услуги</a>
+            <a href="@Url.Action("Index", "Home")">Главная</a>
+            <a href="@Url.Action("ListOfCategories", "Categories")">Автопарк</a>
+            <a href="@Url.Action("Contacts", "Home")">Контакты</a>
+            <a href="@Url.Action("Privacy", "Home")">Политика конфиденциальности</a>
         </div>
     </footer>
 
@@ -97,7 +99,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/dropdownList.js" asp-append-version="true"></script>
     <script src="~/js/logreg.js" asp-append-version="true"></script>
-    @* <script src="~/js/swiper.js" asp-append-version="true"></script> *@
     <script src="~/js/yandexMaps.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

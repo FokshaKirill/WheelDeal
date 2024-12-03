@@ -1,22 +1,39 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WheelDeal.Domain.Database.ModelsDb;
 
 [Table("posts")]
 public class PostDb
 {
+    [Key]
     [Column("id")]
-    public Guid Id { get; private set; } 
-    
+    public Guid Id { get; set; }
+
+    [Column("carid")]
+    public Guid CarId { get; set; } // Внешний ключ на CarDb
+
+    [ForeignKey("carid")]
+    public CarDb Car { get; set; } // Навигационное свойство
+
+    [Column("categoryid")]
+    public Guid CategoryId { get; set; } // Внешний ключ на CategoryDb
+
+    [ForeignKey("categoryid")]
+    public CategoryDb Category { get; set; } // Навигационное свойство
+
     [Column("description")]
-    public string? Description { get; set; }
-    
+    public string Description { get; set; }
+
     [Column("price")]
     public decimal Price { get; set; }
 
-    [Column("id_rates")]
-    public List<int>? RatesID { get; set; }
-    
-    [Column("id_car")]
-    public int CarID { get; set; }  
+    [Column("availabilitystatus")]
+    public bool AvailabilityStatus { get; set; }
+
+    [Column("createdat")]
+    public DateTime CreatedAt { get; set; }
+
+    // Навигационное свойство для RateDb
+    public ICollection<RateDb> Rates { get; set; }
 }

@@ -1,0 +1,45 @@
+﻿@model WheelDeal.Domain.ViewModels.Posts.ListOfPostsViewModel
+
+@{
+    ViewBag.Title = "Список объявлений";
+    Layout = "_Layout";
+}
+
+<div class="container-list-posts">
+    <div class="filter">…</div>
+        <div class="container-posts">
+            <div class="sorts">…</div> 
+                <div class="list-posts">
+                    @foreach (var item in Model.Posts)
+                    {
+                        <div class="post-item">
+                            <div class="item-stars">
+                                @for (int i = 0; i < @item.Stars; i++)
+                                {                            
+                                    <img src="~/images/star.jpg" class="star" />
+                                }
+                            </div>
+                                <img src="@item.ImagePath" class="item-post-img" /> 
+                                <div class="item-info">
+                                    <h2>@item.Brand</h2>
+                                    <h2>@item.Model (@item.Year)</h2>
+                                </div>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>Взрослый:</td>
+                                    <td>Ребенок:</td>
+                                </tr>
+                                <tr>
+                                    <td>@item.Price$</td>
+                                    <td>@item.Power</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <input asp-for="@item.Id" value="@item.Id" style="display: none" /> 
+                            <input asp-for="@item.CategoryId" value="@item.CategoryId" style="display: none"/>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>

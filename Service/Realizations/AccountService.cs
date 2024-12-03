@@ -14,7 +14,7 @@ using WheelDeal.Domain.Interfaces;
 using WheelDeal.Domain.Validation.Validators;
 using WheelDeal.Service.Interfaces;
 
-namespace WheelDeal.Service;
+namespace WheelDeal.Service.Realizations;
 
 public class AccountService : IAccountService
 {

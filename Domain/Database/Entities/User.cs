@@ -16,4 +16,7 @@ public class User
         Role = 1;
         ImagePath = @"G:\Study\GitHub\Practica November-December\WheelDeal\wwwroot\images\avatars\default.png";
     }
+    
+    // Навигационное свойство для Rate
+    public ICollection<Rate> Rates { get; set; }
 }

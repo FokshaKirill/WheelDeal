@@ -2,63 +2,53 @@
 
 public static class ValidationMessages
 {
-    // Сообщения для Car
-    public const string BrandRequired = "Марка автомобиля обязательна.";
-    public const string BrandMaxLength = "Марка автомобиля не может превышать 50 символов.";
+    // Car validation messages
+    public const string CarBrandRequired = "Марка автомобиля не может быть пустой.";
+    public const string CarBrandLength = "Марка автомобиля должна быть от 1 до 50 символов.";
+    public const string CarModelRequired = "Модель автомобиля не может быть пустой.";
+    public const string CarModelLength = "Модель автомобиля должна быть от 1 до 50 символов.";
+    public const string CarYearRange = "Год должен быть между 1900 и 2100.";
+    public const string CarPlacesCountPositive = "Количество мест должно быть больше нуля.";
+    public const string CarEngineValueRange = "Объем двигателя должен быть между 0 и 10 литрами.";
+    public const string CarMileageNonNegative = "Пробег не может быть отрицательным.";
+    public const string CarBodyLength = "Тип кузова должен быть до 20 символов.";
+    public const string CarFuelLength = "Тип топлива должен быть до 20 символов.";
+    public const string CarTransmissionLength = "Тип трансмиссии должен быть до 20 символов.";
+    public const string CarFuelConsumptionRange = "Расход топлива должен быть между 0 и 100 литрами на 100 км.";
+    public const string CarPowerPositive = "Мощность не может быть отрицательной.";
 
-    public const string ModelRequired = "Модель автомобиля обязательна.";
-    public const string ModelMaxLength = "Модель автомобиля не может превышать 50 символов.";
+    // Category validation messages
+    public const string CategoryNameRequired = "Название категории не может быть пустым.";
+    public const string CategoryNameLength = "Название категории должно быть от 1 до 100 символов.";
+    public const string CategoryImagePathLength = "Путь к изображению не должен превышать 255 символов.";
+    public const string CategoryCountPostsNonNegative = "Количество постов не может быть отрицательным.";
 
-    public const string YearRange = "Год выпуска должен быть в диапазоне от 1886 до {0}.";
-    public const string CarItemIdGreaterThanZero = "CarItemId должен быть больше 0.";
+    // User Validation Messages
+    public static string UserLoginRequired = "Логин обязателен для заполнения.";
+    public static string UserLoginLength = "Длина логина не должна превышать 50 символов.";
+    public static string LoginInvalid = "Логин содержит недопустимые символы.";
+    public static string UserPasswordRequired = "Пароль обязателен для заполнения.";
+    public static string UserPasswordLength = "Пароль должен содержать не менее 6 символов.";
+    public static string PasswordInvalid = "Пароль не соответствует требованиям безопасности.";
+    public static string UserEmailRequired = "Электронная почта обязательна для заполнения.";
+    public static string UserEmailInvalid = "Неверный формат электронной почты.";
+    public static string UserRoleRange = "Роль должна быть в пределах от 1 до 3.";
+    public static string UserImagePathMaxLength = "Путь к изображению не должен превышать 200 символов.";
+    public static string UserCreatedAtValid = "Дата создания не может быть в будущем.";
+    
+    // Post validation messages
+    public const string PostCarIdRequired = "ID машины не может быть пустым.";
+    public const string PostCategoryIdRequired = "ID категории не может быть пустым.";
+    public const string PostDescriptionRequired = "Описание поста не может быть пустым.";
+    public const string PostDescriptionLength = "Описание должно быть от 10 до 1000 символов.";
+    public const string PostPricePositive = "Цена должна быть больше нуля.";
+    public const string PostAvailabilityStatusRequired = "Статус доступности не может быть пустым.";
+    public const string PostCreatedAtRequired = "Дата создания поста не может быть пустой.";
 
-    public const string PlacesCountRange = "Количество мест должно быть от 1 до 9.";
-
-    public const string EngineValueGreaterThanZero = "Объем двигателя должен быть больше 0.";
-
-    public const string MileageNonNegative = "Пробег не может быть отрицательным.";
-
-    public const string BodyRequired = "Тип кузова обязателен.";
-    public const string BodyMaxLength = "Тип кузова не может превышать 30 символов.";
-
-    public const string FuelRequired = "Тип топлива обязателен.";
-    public const string FuelMaxLength = "Тип топлива не может превышать 20 символов.";
-
-    public const string TransmissionRequired = "Тип трансмиссии обязателен.";
-    public const string TransmissionMaxLength = "Тип трансмиссии не может превышать 20 символов.";
-
-    public const string FuelConsumptionNonNegative = "Расход топлива не может быть отрицательным.";
-
-    public const string PowerGreaterThanZero = "Мощность должна быть больше 0.";
-
-    // Сообщения для Post
-    public const string DescriptionMaxLength = "Описание не может превышать 500 символов.";
-    public const string PriceGreaterThanZero = "Цена должна быть больше 0.";
-    public const string RatesIDNotEmpty = "Должна быть хотя бы одна оценка.";
-    public const string CarIDGreaterThanZero = "Идентификатор автомобиля должен быть больше 0.";
-
-    // Сообщения для Rate
-    public const string UserIdGreaterThanZero = "Идентификатор пользователя должен быть больше 0.";
-    public const string CommentMaxLength = "Комментарий не может превышать 1000 символов.";
-    public const string DateNotInFuture = "Дата не может быть в будущем.";
-    public const string PointsRange = "Оценка должна быть в диапазоне от 1 до 5.";
-
-    // Сообщения для User
-    public const string LoginRequired = "Логин обязателен.";
-    public const string LoginMaxLength = "Логин не может превышать 50 символов.";
-    public const string LoginInvalid = "Логин может содержать только буквы и цифры, длина от 3 до 50 символов.";
-
-    public const string PasswordRequired = "Пароль обязателен.";
-    public const string PasswordMinLength = "Пароль должен содержать минимум 6 символов.";
-    public const string PasswordInvalid = "Пароль должен содержать минимум 6 символов, включая хотя бы одну заглавную букву и одну цифру.";
-
-    public const string EmailRequired = "Электронная почта обязательна.";
-    public const string EmailInvalid = "Неверный формат электронной почты.";
-
-    public const string RoleRange = "Роль должна быть в допустимом диапазоне.";
-
-    public const string ImagePathMaxLength = "Путь к изображению не может превышать 200 символов.";
-
-    public const string CreatedAtValid = "Дата создания должна быть не позже текущей.";
+    // Rate validation messages
+    public const string RateUserIdRequired = "ID пользователя не может быть пустым.";
+    public const string RateCommentLength = "Комментарий не должен превышать 500 символов.";
+    public const string RatePointsRange = "Оценка должна быть в пределах от 1 до 5.";
+    public const string RateDateRequired = "Дата отзыва не может быть пустой.";
 }
 
