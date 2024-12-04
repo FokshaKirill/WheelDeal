@@ -11,15 +11,13 @@ public class RateDb
     public Guid Id { get; set; }
 
     [Column("userid")]
-    public Guid UserId { get; set; }
+    public Guid UserId { get; set; } // Внешний ключ на UserDb
 
-    [ForeignKey("userid")]
     public UserDb User { get; set; } // Навигационное свойство
 
     [Column("postid")]
-    public Guid PostId { get; set; }
+    public Guid PostId { get; set; } // Внешний ключ на PostDb
 
-    [ForeignKey("postid")]
     public PostDb Post { get; set; } // Навигационное свойство
 
     [Column("comment")]

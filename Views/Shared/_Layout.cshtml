@@ -38,30 +38,38 @@
                                 <a class="nav-link text-dark" id="countries" asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <div>
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <a class="nav-link text-dark" id="click-to-hide" onclick="window.location.href = '@Url.Action("Logout", "Home")'">Logout</a>
-                                }
-                                @if (!User.Identity.IsAuthenticated)
-                                {
-                                    <a class="nav-link text-dark" id="click-to-hide">Login/Registration</a>
-                                }
-                            </div>
-                        </li>
                     </ul>
-                    <ul class="menu">
-                        <li>
-                            <a href="#">Parent Link</a>
-                            <ul>
-                                <li><a href="#">Личный кабинет</a></li>
-                                <li><a href="#">Корзина</a></li>
-                                <li><a href="#">Настройки</a></li>
-                                <li><a href="#" style="color: red">Выход с аккаунта</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <div class="nav-item" style="justify-content: right; justify-items: right">
+                        <div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <ul class="menu">
+                                    <li>
+                                        @* @if (Model.ImagePath != null) *@
+                                        @* { *@
+                                        @* <img src="@Url.Content(Model.ImagePath)" alt="Avatar" class="avatar-image" /> *@
+                                        @* } *@
+                                        @* else *@
+                                        @* { *@
+                                        @* } *@
+                                        <img src="/images/avatars/default.png" alt="Avatar" class="avatar-image" />
+                            
+                                        <ul>
+                                            <li><a href="#">Личный кабинет</a></li>
+                                            <li><a href="#">Корзина</a></li>
+                                            <li><a href="#">Настройки</a></li>
+                                            <li><a class="nav-link text-dark" id="click-to-hide" onclick="window.location.href = '@Url.Action("Logout", "Home")'">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            }
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link text-dark" id="click-to-hide">Login/Registration</a>
+                            }
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </nav>
@@ -99,7 +107,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/dropdownList.js" asp-append-version="true"></script>
     <script src="~/js/logreg.js" asp-append-version="true"></script>
-    <script src="~/js/yandexMaps.js" asp-append-version="true"></script>
+    <script src="~/js/autopark.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

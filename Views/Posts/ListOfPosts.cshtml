@@ -4,47 +4,102 @@
     ViewBag.Title = "Список объявлений";
     Layout = "_Layout";
 }
-<h1>@ViewData["Title"]</h1>
+<h1 xmlns="http://www.w3.org/1999/html">@ViewData["Title"]</h1>
 
 <section class="section-body">
     <section class="section glow">
+        <div class="sorts">
+            <label for="sort-options">Сортировать по: </label>
+            <select id="sort-options">
+                <option value="">Выберите...</option>
+                <option value="price-arend-asc">Цена (по возрастанию)</option> <option value="price-arend-desc">Цена (по убыванию)</option>
+                <option value="stars-asc">Количество звезд (по возрастанию)</option>
+                <option value="stars-desc">Количество звезд (по убыванию)</option>
+            </select>
+        </div>
         <div class="container-list-posts">
-            <div class="filter">…</div>
-                <div class="container-posts">
-                    <div class="sorts">…</div> 
-                        <div class="list-posts">
-                            @foreach (var item in Model.Posts)
-                            {
-                                <div class="post-item">
-                                    <div class="item-stars">
-                                        @for (int i = 0; i < @item.Stars; i++)
-                                        {                            
-                                            <img src="~/images/star.jpg" class="star" />
-                                        }
-                                    </div>
-                                        <img src="@item.ImagePath" class="item-post-img" /> 
-                                        <div class="item-info">
-                                            <h2>@item.Brand</h2>
-                                            <h2>@item.Model (@item.Year)</h2>
-                                        </div>
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td>Взрослый:</td>
-                                            <td>Ребенок:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>@item.Price$</td>
-                                            <td>@item.Power</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <input asp-for="@item.Id" value="@item.Id" style="display: none" /> 
-                                    <input asp-for="@item.CategoryId" value="@item.CategoryId" style="display: none"/>
-                                </div>
-                            }
-                        </div>
+            <div class="filter">
+                <h4>Фильтр</h4>
+                <div class="price-filter">
+                    <label class="title">Цена аренды на день: </label>
+                    <label>Минимальная цена: </label>
+                    <input type="range" id="arend-min-price" min="0" max="2000" value="0">
+                    <span id="arend-min-label">0</span><br/>
+                    <label>Максимальная цена: </label>
+                    <input type="range" id="arend-max-price" min="0" max="2000" value="2000">
+                    <span id="arend-max-label">2000</span>
+                    <div style="padding: 0 10px; justify-content: space-between; color: #321939">Текущие значения: <span id="arend-price-values">0 - 2000</span></div>
+                </div>
+                <div class="meal-types">
+                    <label class="title">Виды питания: </label>
+                    <div>
+                        <input type="checkbox" id="meal-type-1" value="NoMeals" class="custom-checkbox">
+                        <label for="meal-type-1">Без питания</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="meal-type-2" value="Breakfast" class="custom-checkbox">
+                        <label for="meal-type-2">Завтрак</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="meal-type-3" value="HalfBoard" class="custom-checkbox">
+                        <label for="meal-type-3">Завтрак и ужин</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="meal-type-4" value="AllInclusive" class="custom-checkbox">
+                        <label for="meal-type-4">Все включено</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="meal-type-5" value="UltraAllInclusive" class="custom-checkbox">
+                        <label for="meal-type-5">Ультра все включено</label>
                     </div>
                 </div>
+                <input id="idCountry" value="@Model. IdCountry" style="display: none"/>
+                <div class="filter-button">
+                    <button id="apply-filter">Применить фильтр</button>
+                </div>
+            </div>
+            <div class="container-posts">
+                <div class="list-posts">
+                    @foreach (var item in Model.Posts)
+                    {
+                        <div class="post-item">
+                            <div class="item-stars">
+                                @for (int i = 0; i < @item.Stars; i++)
+                                {                            
+                                    <img src="~/images/star.png" class="star" />
+                                }
+                            </div>
+                                @if (item.ImagesPaths.Count > 0)
+                                {
+                                    <img src="@item.ImagesPaths.FirstOrDefault()" class="item-post-img" /> 
+                                }
+                                else
+                                {
+                                    <img src="/images/posts/default.png" class="item-post-img" /> 
+                                }
+                                <div class="item-info">
+                                    <h2>@item.Car.Brand</h2>
+                                    <h2>@item.Car.Model (@item.Car.Year)</h2>
+                                    <p>Средний рейтинг: @item.Stars</p>
+                                </div>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>Взрослый:</td>
+                                    <td>Ребенок:</td>
+                                </tr>
+                                <tr>
+                                    <td>@item.Price$</td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <input asp-for="@item.Id" value="@item.Id" style="display: none" /> 
+                            <input asp-for="@item.CategoryId" value="@item.CategoryId" style="display: none"/>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
     </section>    
 </section>

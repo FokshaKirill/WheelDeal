@@ -85,7 +85,7 @@ public class HomeController : Controller
             [HttpPost]
             public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
             {
-                if (ModelState.IsValid && model.Password == model.PasswordConfirm)
+                if (ModelState.IsValid)
                 {
                     var user = _mapper.Map<User>(model);
 
@@ -113,9 +113,6 @@ public class HomeController : Controller
                     .Select(e => e.ErrorMessage)
                     .ToList();
                 
-                if (model.Password != model.PasswordConfirm)
-                    errors.Add("Пароли должны совпадать.");
-                    
                 return BadRequest(errors); // Возвращаем ошибки 400 Bad Request
             }
 
@@ -222,9 +219,9 @@ public class HomeController : Controller
 
     #endregion 
     
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+    // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    // public IActionResult Error()
+    // {
+    //     return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    // }
 }

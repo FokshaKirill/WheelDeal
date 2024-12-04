@@ -20,6 +20,10 @@ public class UserValidator : AbstractValidator<User>
             .MinimumLength(6).WithMessage(ValidationMessages.UserPasswordLength)
             .Matches(RegexPatterns.PasswordRegex).WithMessage(ValidationMessages.PasswordInvalid);
 
+        RuleFor(user => user.PasswordConfirm)
+            .NotEmpty().WithMessage(ValidationMessages.UserPasswordRequired)
+            .Equal(user => user.Password).WithMessage(ValidationMessages.PasswordMismatch);
+
         RuleFor(user => user.Email)
             .NotEmpty().WithMessage(ValidationMessages.UserEmailRequired)
             .Matches(RegexPatterns.EmailRegex).WithMessage(ValidationMessages.UserEmailInvalid);

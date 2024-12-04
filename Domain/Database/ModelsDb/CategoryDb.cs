@@ -19,6 +19,5 @@ public class CategoryDb
     [Column("countposts")]
     public int CountPosts { get; set; }
 
-    // Навигационное свойство для PostDb
     public ICollection<PostDb> Posts { get; set; }
 }

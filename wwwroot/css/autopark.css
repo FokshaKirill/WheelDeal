@@ -20,7 +20,7 @@
     height: 100%;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    border: violet 2px solid;
 }
     /* Изображение
     */
@@ -83,58 +83,58 @@
             display: block; /* Показываем описание */
         }
 
-.container-list-tours {
+.container-list-posts {
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
-.container-filter-tours {
+.container-filter-posts {
     margin-top: 30px;
 }
 
-.container-filter-tours {
+.container-filter-posts {
     display: flex;
     padding: 20px;
-    gap: 20px;
 }
 
 /* Фильтры (левая часть) */
 .filter {
     flex: 1;
     background-color: #ffffff;
-    margin: 0 40px;
-    padding: 20px;
+    margin: 0 15px 0 0;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 6px 4px 8px rgba(8, 8, 8, 8.3);
+    border: violet 2px solid;
     height: fit-content;
 }
 
 /* Список туров (правая часть) */
-.container-tours {
+.container-posts {
     flex: 3;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
 /* Typ */
-.list-tours {
+.list-posts {
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
     
-.tour-item {
+.post-item {
     display: flex;
     align-items: center;
     background-color: #ffffff;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     position: relative;
+    border: violet 2px solid;
+    margin-bottom: 15px;
 }
 
 /* Изображение отеля */
-.item-tour-img {
+.item-post-img {
     flex-shrink: 0;
     width: 150px;
     height: 150px;
@@ -188,5 +188,160 @@ table td {
     padding: 10px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: violet 2px solid;
 }
+
+.filter-container .title {
+    margin-bottom: 19px;
+    display: flex;
+    justify-content: center;
+}
+    .price-filter,
+    .meal-types {
+        margin: 30px 0;
+    }
+
+.price-filter input[type="range"] {
+    -webkit-appearance: none; /* Убираем стандартный стиль */
+    width: 100%;
+    height: 8px;
+    background: #ccc; 
+    border-radius: 5px;
+    outline: none;
+}
+.price-filter input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #B73CFFCC;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.price-filter input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #B73CFFCC;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+    .price-filter input[type="range"]::-ms-thumb {
+        width: 20px;
+        height: 20px;
+        background: #B73CFFCC;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .meal-types div {
+        margin-bottom: 10px;
+    }
+
+.custom-checkbox {
+display: none;
+}
+    
+.custom-checkbox + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.custom-checkbox + label::before {
+    content: '';
+    position: absolute;
+    Left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border: 2px solid  #B73CFFCC; /* Цвет рамки */
+    border-radius: 4px;
+    background-color: white;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.custom-checkbox:checked + label::before {
+    background-color:  #B73CFFCC; 
+    border-color:  #B73CFFCC;
+}
+
+.custom-checkbox:checked label::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.price-filter div {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid rgba(153, 0, 255, 0.2);
+    border-radius: 4px;
+    margin: 10px 0;
+    background: rgba(153, 0, 255, 0.2);
+    gap: 10px;
+}
+
+.price-filter span {
+    font-size: 14px;
+    font-weight: bold;
+    position: initial;
+}
+
+#arend .price-values {
+    font-weight: bold;
+    color: #62466b;
+    position: initial;
+}
+    .filter-button {
+        display: flex;
+        justify-content: center;
+    }
+        .filter-button button {
+            padding: 15px 15px;
+            background-color: #B73CFFCC;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+            margin: 20px;
+        }
+            .filter-button button:hover {
+                background-color: black;
+                transition: 0.2s;
+            }
+
+/* Блок сортировки */
+.sorts {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: violet 2px solid;
+}
+
+.sorts label {
+    font-size: 16px;
+    color: #333333;
+}
+
+    .sorts select {
+        padding: 5px 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        cursor: pointer;
+    }

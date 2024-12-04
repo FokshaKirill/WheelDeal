@@ -1,6 +1,4 @@
-﻿using CSharpFunctionalExtensions;
-
-namespace WheelDeal.Domain.Database.Entities;
+﻿namespace WheelDeal.Domain.Database.Entities;
 
 public class Car
 {
@@ -17,6 +15,5 @@ public class Car
     public decimal FuelConsumption { get; set; }
     public int Power { get; set; }
 
-    // Навигационное свойство для Post
     public ICollection<Post> Posts { get; set; }
 }

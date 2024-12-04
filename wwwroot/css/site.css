@@ -424,6 +424,7 @@ footer .footer-right {
   flex-direction: row;
   justify-content: center;
   align-content: center;
+  align-items: center;
 }
 
 .footer-WheelDeal { 
@@ -448,10 +449,10 @@ footer .footer-right a {
 
 .menu {
   display: block;
-  margin: 0 auto;
+  margin: 0 32px 0 0 ;
   position: relative;
   padding: 0;
-  width: 200px;  
+  width: 7%;  
 }
 
 .menu > li > a {
@@ -540,7 +541,7 @@ footer .footer-right a {
 }
 
 .slider .slide-track {
-  animation: scroll 25s linear infinite;
+  animation: scroll 35s linear infinite;
   display: flex;
   width: calc(450px * 22);
 }
@@ -570,14 +571,15 @@ footer .footer-right a {
   aspect-ratio: 1/1;
   border-radius: 64px;
   margin: 0;
+  padding: 2px;
+  border: 1px #9710e0 solid;
 }
 
 .slider .slide h1 {
   font-size: 32px;
   text-align: left;
-  padding: 0;
   margin: 0 0 0 20px;
-  float: left;
+  padding: 8px 0 0 0;
 }
 
 .slider .slide h2 {
@@ -585,4 +587,9 @@ footer .footer-right a {
   text-align: left;
   padding: 0;
   margin: 0 0 0 20px;
+}
+
+.avatar-image {
+  width: 48px;
+  height: 48px;
 }

@@ -1,6 +1,4 @@
-﻿using WheelDeal.Domain.Database.ModelsDb;
-
-namespace WheelDeal.Domain.Database.Entities;
+﻿namespace WheelDeal.Domain.Database.Entities;
 
 public class Category
 {
@@ -9,6 +7,5 @@ public class Category
     public string Name { get; set; }
     public int CountPosts { get; set; }
 
-    // Навигационное свойство для Post
     public ICollection<Post> Posts { get; set; }
 }

@@ -43,6 +43,5 @@ public class CarDb
     [Column("power")]
     public int Power { get; set; }
 
-    // Навигационное свойство для PostDb
     public ICollection<PostDb> Posts { get; set; }
 }

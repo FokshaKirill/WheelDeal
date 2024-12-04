@@ -23,30 +23,6 @@ public class ApplicationDbContext : DbContext
     {
         throw new NotImplementedException();
     }
-    
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     optionsBuilder
-    //         .UseNpgsql(_configuration.GetConnectionString("Database"))
-    //         .UseLoggerFactory(CreateLoggerFactory())
-    //         .EnableSensitiveDataLogging();
-    // }
-    //
-    // protected override void OnModelCreating(ModelBuilder modelBuilder)
-    // {
-    //     modelBuilder.Entity<Car>(carBuilder =>
-    //     {
-    //         carBuilder.ToTable("Cars").HasKey(c => c.Id);
-    //         carBuilder.Property(c => c.Id).HasColumnName("CarID");
-    //         carBuilder.ComplexProperty(c => c.Brand, brandBuilder =>
-    //         {
-    //             brandBuilder.Property(b => b.First()).HasColumnName("firstName").HasMaxLength(100);
-    //             brandBuilder.Property(b => b.Last()).HasColumnName("lastName").HasMaxLength(100);
-    //         });
-    //         carBuilder.HasOne(c => c.Model)
-    //             .WithMany();
-    //     });
-    // }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -58,8 +34,14 @@ public class ApplicationDbContext : DbContext
             .ToTable("users");
         modelBuilder.Entity<RateDb>()
             .ToTable("rates");
-        modelBuilder.Entity<PostDb>()
-            .ToTable("posts");
+        
+        modelBuilder.Entity<PostDb>(entity =>
+        {
+            entity.ToTable("posts");
+
+            entity.Property(e => e.CarId)
+                .HasColumnName("carid"); // Убедитесь, что имя столбца соответствует БД
+        });
     }
 
     public ILoggerFactory CreateLoggerFactory() => 

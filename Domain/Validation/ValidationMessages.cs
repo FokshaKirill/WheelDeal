@@ -35,6 +35,8 @@ public static class ValidationMessages
     public static string UserRoleRange = "Роль должна быть в пределах от 1 до 3.";
     public static string UserImagePathMaxLength = "Путь к изображению не должен превышать 200 символов.";
     public static string UserCreatedAtValid = "Дата создания не может быть в будущем.";
+    public static string PasswordMismatch = "Пароли должны совпадать.";
+    
     
     // Post validation messages
     public const string PostCarIdRequired = "ID машины не может быть пустым.";

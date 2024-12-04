@@ -22,12 +22,11 @@ public class UserDb
     [Column("role")]
     public int Role { get; set; }
 
-    [Column("pathimage")]
-    public string ImagePath { get; set; }
+    [Column("imagepath")]
+    public string? ImagePath { get; set; }
 
     [Column("createdat")]
     public DateTime CreatedAt { get; set; }
 
-    // Навигационное свойство для RateDb
     public ICollection<RateDb> Rates { get; set; }
 }

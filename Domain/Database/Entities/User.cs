@@ -2,13 +2,15 @@
 
 public class User
 {
-    public Guid Id { get; private set; } 
+    public Guid Id { get; set; }
     public string Login { get; set; }
     public string Password { get; set; }
+    public string PasswordConfirm { get; set; }
     public string Email { get; set; }
     public int Role { get; set; }
-    public string ImagePath { get; set; }
+    public string? ImagePath { get; set; }
     public DateTime CreatedAt { get; set; }
+    public ICollection<Rate> Rates { get; set; }
 
     public User()
     {
@@ -16,7 +18,4 @@ public class User
         Role = 1;
         ImagePath = @"G:\Study\GitHub\Practica November-December\WheelDeal\wwwroot\images\avatars\default.png";
     }
-    
-    // Навигационное свойство для Rate
-    public ICollection<Rate> Rates { get; set; }
 }

@@ -13,13 +13,11 @@ public class PostDb
     [Column("carid")]
     public Guid CarId { get; set; } // Внешний ключ на CarDb
 
-    [ForeignKey("carid")]
     public CarDb Car { get; set; } // Навигационное свойство
 
     [Column("categoryid")]
     public Guid CategoryId { get; set; } // Внешний ключ на CategoryDb
 
-    [ForeignKey("categoryid")]
     public CategoryDb Category { get; set; } // Навигационное свойство
 
     [Column("description")]
@@ -34,6 +32,8 @@ public class PostDb
     [Column("createdat")]
     public DateTime CreatedAt { get; set; }
 
-    // Навигационное свойство для RateDb
     public ICollection<RateDb> Rates { get; set; }
+    
+    [Column("imagespaths")]
+    public ICollection<string> ImagesPaths { get; set; }
 }

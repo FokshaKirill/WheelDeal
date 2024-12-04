@@ -88,7 +88,6 @@
 
             const errorContainer = document.getElementById('error-messages-signup');
 
-
                 const form = {
                     login: document.getElementById("signup_login"),
                     email: document.getElementById("signup_email"),

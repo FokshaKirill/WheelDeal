@@ -192,10 +192,10 @@ namespace WheelDeal.Migrations
                     b.ToTable("rates", null, t =>
                         {
                             t.Property("postid")
-                                .HasColumnName("postid1");
+                                .HasColumnName("postid");
 
                             t.Property("userid")
-                                .HasColumnName("userid1");
+                                .HasColumnName("userid");
                         });
                 });
 

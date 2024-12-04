@@ -30,7 +30,7 @@ public class PostService : IPostService
         try
         {
             var postsDb = _postStorage.GetAll()
-                .Where(post => post.Id.Equals(id))  // Или другие варианты сравнения
+                .Where(post => post.CategoryId.Equals(id)) // Сравниваем с CategoryId
                 .OrderBy(p => p.CreatedAt)
                 .ToList();
             var result = _mapper.Map<List<Post>>(postsDb);
