@@ -37,6 +37,9 @@ public static class ValidationMessages
     public static string UserCreatedAtValid = "Дата создания не может быть в будущем.";
     public static string PasswordMismatch = "Пароли должны совпадать.";
     
+    public static string RegCodeConfirmRequired = "Код подтверждения обязателен для заполнения.";
+    public static string RegCodeConfirmLength = "Длина кода должна быть 6 символов.";
+    public static string RegCodeConfirmInvalid = "Код подтверждения должен содержать только 6 цифр.";
     
     // Post validation messages
     public const string PostCarIdRequired = "ID машины не может быть пустым.";

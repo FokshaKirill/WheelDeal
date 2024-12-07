@@ -62,9 +62,7 @@ public class HomeController : Controller
             {
                 if (ModelState.IsValid)
                 {
-                    var user = _mapper.Map<User>(model);
-
-                    var response = await _accountService.Login(user);
+                    var response = await _accountService.Login(model);
                     if (response.StatusCode == Domain.Database.Responses.StatusCode.OK)
                     {
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
@@ -87,10 +85,8 @@ public class HomeController : Controller
             {
                 if (ModelState.IsValid)
                 {
-                    var user = _mapper.Map<User>(model);
-
                     // Вызываем сервис для регистрации
-                    var response = await _accountService.Register(user);
+                    var response = await _accountService.Register(model);
 
                     // Проверяем, успешна ли регистрация
                     if (response.StatusCode == Domain.Database.Responses.StatusCode.OK)
@@ -98,7 +94,10 @@ public class HomeController : Controller
                         // Возвращаем форму подтверждения кода только при успешной валидации
                         var confirm = new ConfirmEmailViewModel
                         {
-                            Email = model.Email,
+                            Login = model.Login,                            
+                            Email = model.Email,                            
+                            Password = model.Password,
+                            PasswordConfirm = model.PasswordConfirm,
                             GeneratedCode = response.Data
                         };
                         return Ok(confirm);
@@ -119,9 +118,7 @@ public class HomeController : Controller
             [HttpPost]
             public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailViewModel confirmEmailModel)
             {
-                var user = _mapper.Map<User>(confirmEmailModel);
-                
-                var response = await _accountService.ConfirmEmail(user, confirmEmailModel.GeneratedCode, confirmEmailModel.CodeConfirm);
+                var response = await _accountService.ConfirmEmail(confirmEmailModel, confirmEmailModel.GeneratedCode, confirmEmailModel.CodeConfirm);
 
                 if (response.StatusCode == Domain.Database.Responses.StatusCode.OK)
                 {

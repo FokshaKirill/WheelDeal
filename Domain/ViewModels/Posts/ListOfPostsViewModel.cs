@@ -1,4 +1,5 @@
-﻿using WheelDeal.Domain.Database.ModelsDb;
+﻿using WheelDeal.Domain.Database.Entities;
+using WheelDeal.Domain.Database.ModelsDb;
 
 namespace WheelDeal.Domain.ViewModels.Posts;
 
@@ -11,14 +12,13 @@ public class ListOfPostsViewModel
 public class PostForPostsViewModel
 {
     public Guid Id { get; set; }
+    public Guid CarId { get; set; }
     public Guid CategoryId { get; set; }
-    
-    public Guid CarId { get; set; } // Внешний ключ на CarDb
-
-    public CarDb Car { get; set; } // Навигационное свойство
-    public int? Year { get; set; }
+    public CarDb Car { get; set; }
+    public string Description { get; set; }
+    public decimal Price { get; set; }
+    public bool AvailabilityStatus { get; set; }
+    public DateTime CreatedAt { get; set; }
     public int Stars { get; set; }
     public ICollection<string> ImagesPaths { get; set; }
-    public decimal Price { get; set; }
-
 }

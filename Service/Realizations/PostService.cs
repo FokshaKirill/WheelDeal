@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WheelDeal.Domain.Database;
 using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.Database.ModelsDb;
@@ -11,39 +12,31 @@ namespace WheelDeal.Service.Realizations;
 public class PostService : IPostService
 {
     private readonly IBaseStorage<PostDb> _postStorage;
-    
-    public IMapper _mapper { get; set; }
+    private readonly IMapper _mapper;
 
-    private MapperConfiguration mapperConfiguration = new MapperConfiguration(p =>
-    {
-        p.AddProfile<AppMappingProfile>();
-    });
-
-    public PostService(IBaseStorage<PostDb> postStorage)
+    public PostService(IBaseStorage<PostDb> postStorage, IMapper mapper)
     {
         _postStorage = postStorage;
-        _mapper = mapperConfiguration.CreateMapper();
+        _mapper = mapper;
     }
-    
+
     public BaseResponse<List<Post>> GetAllPostsByIdCategory(Guid id)
     {
         try
         {
             var postsDb = _postStorage.GetAll()
-                .Where(post => post.CategoryId.Equals(id)) // Сравниваем с CategoryId
+                .Where(post => post.CategoryId == id)
+                .Include(p => p.Car) // Загрузка связанных данных
+                .Include(p => p.Category) // Загрузка категории
+                .Include(p => p.Rates) // Загрузка оценок
                 .OrderBy(p => p.CreatedAt)
                 .ToList();
-            var result = _mapper.Map<List<Post>>(postsDb);
-            if (result.Count == 0)
-                return new BaseResponse<List<Post>>()
-                {
-                    Description = "Найдено 0 элементов",
-                    StatusCode = StatusCode.OK
-                };
+
+            var posts = _mapper.Map<List<Post>>(postsDb);
 
             return new BaseResponse<List<Post>>()
             {
-                Data = result,
+                Data = posts,
                 StatusCode = StatusCode.OK
             };
         }

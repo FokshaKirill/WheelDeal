@@ -9,9 +9,8 @@
 <section class="section-body">
     <section class="section glow">
         <div class="sorts">
-            <label for="sort-options">Сортировать по: </label>
             <select id="sort-options">
-                <option value="">Выберите...</option>
+                <option value="">Лучшее совпадение</option>
                 <option value="price-arend-asc">Цена (по возрастанию)</option> <option value="price-arend-desc">Цена (по убыванию)</option>
                 <option value="stars-asc">Количество звезд (по возрастанию)</option>
                 <option value="stars-desc">Количество звезд (по убыванию)</option>
@@ -23,26 +22,26 @@
                 <div class="price-filter">
                     <label class="title">Цена аренды на день: </label>
                     <label>Минимальная цена: </label>
-                    <input type="range" id="arend-min-price" min="0" max="2000" value="0">
+                    <input type="range" id="arend-min-price" min="0" max="@Math.Round(Model.Posts.Max(p => p.Price))" value="0">
                     <span id="arend-min-label">0</span><br/>
                     <label>Максимальная цена: </label>
-                    <input type="range" id="arend-max-price" min="0" max="2000" value="2000">
-                    <span id="arend-max-label">2000</span>
-                    <div style="padding: 0 10px; justify-content: space-between; color: #321939">Текущие значения: <span id="arend-price-values">0 - 2000</span></div>
+                    <input type="range" id="arend-max-price" min="0" max="@Math.Round(Model.Posts.Max(p => p.Price))" value="@Math.Round(Model.Posts.Max(p => p.Price))">
+                    <span id="arend-max-label">@Math.Round(Model.Posts.Max(p => p.Price))</span>
+                    <div style="padding: 0 10px; justify-content: space-between; color: #321939">Текущие значения: <span id="arend-price-values">0 - @Math.Round(Model.Posts.Max(p => p.Price))</span></div>
                 </div>
                 <div class="meal-types">
-                    <label class="title">Виды питания: </label>
+                    <label class="title">Вид топлива: </label>
                     <div>
                         <input type="checkbox" id="meal-type-1" value="NoMeals" class="custom-checkbox">
-                        <label for="meal-type-1">Без питания</label>
+                        <label for="meal-type-1">Бензин</label>
                     </div>
                     <div>
                         <input type="checkbox" id="meal-type-2" value="Breakfast" class="custom-checkbox">
-                        <label for="meal-type-2">Завтрак</label>
+                        <label for="meal-type-2">Дизель</label>
                     </div>
                     <div>
                         <input type="checkbox" id="meal-type-3" value="HalfBoard" class="custom-checkbox">
-                        <label for="meal-type-3">Завтрак и ужин</label>
+                        <label for="meal-type-3">Газ</label>
                     </div>
                     <div>
                         <input type="checkbox" id="meal-type-4" value="AllInclusive" class="custom-checkbox">
@@ -62,40 +61,28 @@
                 <div class="list-posts">
                     @foreach (var item in Model.Posts)
                     {
-                        <div class="post-item">
+                        <div class="post-item" data-price="@item.Price" data-stars="@item.Stars">
                             <div class="item-stars">
-                                @for (int i = 0; i < @item.Stars; i++)
-                                {                            
-                                    <img src="~/images/star.png" class="star" />
-                                }
+                                <img src="~/images/star.png" class="star" />
+                                <p style="margin-left: 2px">@item.Stars</p>
                             </div>
-                                @if (item.ImagesPaths.Count > 0)
-                                {
-                                    <img src="@item.ImagesPaths.FirstOrDefault()" class="item-post-img" /> 
-                                }
-                                else
-                                {
-                                    <img src="/images/posts/default.png" class="item-post-img" /> 
-                                }
-                                <div class="item-info">
-                                    <h2>@item.Car.Brand</h2>
-                                    <h2>@item.Car.Model (@item.Car.Year)</h2>
-                                    <p>Средний рейтинг: @item.Stars</p>
-                                </div>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td>Взрослый:</td>
-                                    <td>Ребенок:</td>
-                                </tr>
-                                <tr>
-                                    <td>@item.Price$</td>
-                                    <td></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <input asp-for="@item.Id" value="@item.Id" style="display: none" /> 
-                            <input asp-for="@item.CategoryId" value="@item.CategoryId" style="display: none"/>
+                            @if (item.ImagesPaths.Count > 0)
+                            {
+                                <img src="@item.ImagesPaths.FirstOrDefault()" class="item-post-img" />
+                            }
+                            else
+                            {
+                                <img src="/images/posts/default.png" class="item-post-img" />
+                            }
+                            <div class="item-info">
+                                <h6>@(item.Car?.Brand ?? "") @(item.Car?.Model ?? "") (@item.Car?.Year)</h6>
+                                <p>@item.Description</p>
+                                <div class="available-status" style="@(item.AvailabilityStatus ? "background-color: #37f100;" : "background-color: #f10000;")"></div>
+                                <button class="post-item-btn">(@item.Price) р/день</button>
+                                <p style="margin: 4px 0 0 0; color: #494848; font-size: 12px; text-align: right">@item.CreatedAt.ToShortDateString()</p>
+                            </div>
+                            <input asp-for="@item.Id" value="@item.Id" style="display: none" />
+                            <input asp-for="@item.CategoryId" value="@item.CategoryId" style="display: none" />
                         </div>
                     }
                 </div>

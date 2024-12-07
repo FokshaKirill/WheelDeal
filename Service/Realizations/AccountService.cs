@@ -4,6 +4,7 @@ using AutoMapper;
 using FluentValidation;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
 using WheelDeal.Domain.Database.Entities;
@@ -12,6 +13,7 @@ using WheelDeal.Domain.Database.Responses;
 using WheelDeal.Domain.Helpers;
 using WheelDeal.Domain.Interfaces;
 using WheelDeal.Domain.Validation.Validators;
+using WheelDeal.Domain.ViewModels.LogAndReg;
 using WheelDeal.Service.Interfaces;
 
 namespace WheelDeal.Service.Realizations;
@@ -22,7 +24,11 @@ public class AccountService : IAccountService
 
         private IMapper _mapper { get; set; }
 
-        private UserValidator _validationRules { get; set; }
+        private LoginValidator _validationRulesLogin { get; set; }
+        
+        private RegisterValidator _validationRulesRegister { get; set; }
+        
+        private ConfirmEmailValidator _validationRulesConfirmEmail { get; set; }
 
         MapperConfiguration mapperConfiguration = new MapperConfiguration(p => { p.AddProfile<AppMappingProfile>(); });
 
@@ -30,16 +36,16 @@ public class AccountService : IAccountService
         {
                 _userStorage = userStorage;
                 _mapper = mapperConfiguration.CreateMapper();
-                _validationRules = new UserValidator();
+                _validationRulesLogin = new();
+                _validationRulesRegister = new();
+                _validationRulesConfirmEmail = new();
         }
 
-        public async Task<BaseResponse<ClaimsIdentity>> Login(User model)
+        public async Task<BaseResponse<ClaimsIdentity>> Login(LoginViewModel model)
         {
                 try
                 {
-                        model.Login = "Example";
-                        
-                        await _validationRules.ValidateAndThrowAsync(model);
+                        await _validationRulesLogin.ValidateAndThrowAsync(model);
 
                         var userdb = await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email);
 
@@ -59,7 +65,8 @@ public class AccountService : IAccountService
                                 };
                         }
 
-                        var result = AuthenticateUserHelper.Authenticate(model);
+                        var user = new User { Login = userdb.Login, PasswordConfirm = userdb.Password, Email = userdb.Email, ImagePath = userdb.ImagePath, Role = userdb.Role };
+                        var result = AuthenticateUserHelper.Authenticate(user);
 
                         return new BaseResponse<ClaimsIdentity>()
                         {
@@ -86,12 +93,12 @@ public class AccountService : IAccountService
                 }
         }
 
-        public async Task<BaseResponse<string>> Register(User model)
+        public async Task<BaseResponse<string>> Register(RegisterViewModel model)
         {
                 try
                 {
                         // Проверка валидности модели
-                        await _validationRules.ValidateAndThrowAsync(model);
+                        await _validationRulesRegister.ValidateAndThrowAsync(model);
 
                         // Проверяем, есть ли уже пользователь с таким email
                         if (await _userStorage.GetAll().AnyAsync(x => x.Email == model.Email))
@@ -189,7 +196,7 @@ public class AccountService : IAccountService
                 }
         }
 
-        public async Task<BaseResponse<ClaimsIdentity>> ConfirmEmail(User model, string code, string confirmCode)
+        public async Task<BaseResponse<ClaimsIdentity>> ConfirmEmail(ConfirmEmailViewModel model, string code, string confirmCode)
         {
                 try
                 {
@@ -206,8 +213,10 @@ public class AccountService : IAccountService
                         var userdb = _mapper.Map<UserDb>(model);
                         await _userStorage.Add(userdb);
 
+                        var user = new User { Login = userdb.Login, PasswordConfirm = userdb.Password, Email = userdb.Email, ImagePath = userdb.ImagePath, Role = userdb.Role };
+                        
                         // Аутентифицируем пользователя
-                        var result = AuthenticateUserHelper.Authenticate(model);
+                        var result = AuthenticateUserHelper.Authenticate(user);
 
                         return new BaseResponse<ClaimsIdentity>
                         {

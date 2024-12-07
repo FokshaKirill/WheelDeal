@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.Database.ModelsDb;
+using WheelDeal.Domain.ViewModels.LogAndReg;
 
 namespace WheelDeal.Domain.Helpers;
 

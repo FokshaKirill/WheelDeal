@@ -13,6 +13,7 @@ public static class Initializer
         services.AddScoped<IBaseStorage<UserDb>, UserStorage>();
         services.AddScoped<IBaseStorage<CategoryDb>, CategoryStorage>();
         services.AddScoped<IBaseStorage<PostDb>, PostStorage>();
+        services.AddScoped<IBaseStorage<CarDb>, CarStorage>();
     }
     
     public static void InitializeServices(this IServiceCollection services)
@@ -20,7 +21,7 @@ public static class Initializer
         services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<IAutoParkService, AutoParkService>();        
         services.AddScoped<IPostService, PostService>();
-
+        
         services.AddControllersWithViews()
             .AddDataAnnotationsLocalization()
             .AddViewLocalization();

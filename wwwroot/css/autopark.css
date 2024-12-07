@@ -20,7 +20,7 @@
     height: 100%;
     border-radius: 8px;
     cursor: pointer;
-    border: violet 2px solid;
+    border: violet 1px solid;
 }
     /* Изображение
     */
@@ -105,7 +105,7 @@
     margin: 0 15px 0 0;
     padding: 30px;
     border-radius: 8px;
-    border: violet 2px solid;
+    border: violet 1px solid;
     height: fit-content;
 }
 
@@ -119,28 +119,56 @@
 /* Typ */
 .list-posts {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
 }
     
 .post-item {
     display: flex;
-    align-items: center;
     background-color: #ffffff;
     padding: 15px;
     border-radius: 8px;
     position: relative;
-    border: violet 2px solid;
-    margin-bottom: 15px;
+    border: violet 1px solid;
+    flex-direction: column;
+    max-width: 275px;
+    aspect-ratio: 10 / 15;
+    cursor: pointer;
+}
+
+.available-status {
+    border-radius: 64px;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.post-item-btn {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    border: 0;
+    
+}
+
+p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Количество строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Изображение отеля */
 .item-post-img {
     flex-shrink: 0;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 8px;
-    margin-right: 20px;
+    margin-bottom: 4px;
 }
 
 /* Информация о туре */
@@ -168,15 +196,27 @@ table td {
 
 /* Звезды */
 .item-stars {
+    FONT-WEIGHT: 800;
+    display: flex;
+    flex-direction: row;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 18px;
+    right: 18px;
+    color: #F213DD;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(180, 20, 200, 0.65);
+    border-radius: 6px;
+    padding: 2px 4px 2px 6px;
 }
 
 .star {
     width: 20px;
     height: 20px;
-    margin-left: 2px;
+    background-color: transparent;
+    filter: hue-rotate(280deg) contrast(4) brightness(0.45) saturate(5);
+    margin-right: 2px;
 }
 
 /* Блок сортировки */
@@ -188,7 +228,7 @@ table td {
     padding: 10px;
     background-color: #ffffff;
     border-radius: 8px;
-    border: violet 2px solid;
+    border: violet 1px solid;
 }
 
 .filter-container .title {
@@ -258,7 +298,7 @@ display: none;
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    border: 2px solid  #B73CFFCC; /* Цвет рамки */
+    border: 1px solid  #B73CFFCC; /* Цвет рамки */
     border-radius: 4px;
     background-color: white;
     transition: background-color 0.25s ease, border-color 0.25s ease;
@@ -329,7 +369,8 @@ display: none;
     padding: 10px;
     background-color: #ffffff;
     border-radius: 8px;
-    border: violet 2px solid;
+    border: violet 1px solid;
+    justify-content: right;
 }
 
 .sorts label {
@@ -340,8 +381,16 @@ display: none;
     .sorts select {
         padding: 5px 10px;
         font-size: 14px;
-        border: 1px solid #ccc;
+        border: 0;
         border-radius: 4px;
-        background-color: #f9f9f9;
+        background-color: transparent;
         cursor: pointer;
+        justify-self: right;
+        justify-items: right;
+        text-align: right;
+        width: fit-content;
+    }
+    
+    select option {
+        border-top: 0;
     }

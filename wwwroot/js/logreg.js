@@ -104,14 +104,14 @@
 
                 sendRequest('POST', requestURL, body)
                     .then(data => {
-                        cleaningAndClosingForm(form, errorContainer);
+                        confirmEmail(data);
 
                         console.log('Успешный ответ:', data);
 
                         hiddenOpen_Closeclick(".confirm-email-container");
                         toggleBlur(".container-log-reg");
-
-                        confirmEmail(data);
+                        
+                        cleaningAndClosingForm(form, errorContainer);
                     })
                     .catch(err => {
                         displayErrors(err, errorContainer);
@@ -164,7 +164,7 @@
         const errorContainer = document.getElementById("error-messages-confirm-code");
         
         confirmButton.addEventListener('click', function () {
-                body.CodeConfirm = document.getElementById('code_confirm').value;
+                body.codeConfirm = document.getElementById('code_confirm').value;
                 const requestURL = 'Home/ConfirmEmail';
 
                 sendRequest('POST', requestURL, body)

@@ -18,7 +18,20 @@ public class AppMappingProfile : Profile
         CreateMap<User, ConfirmEmailViewModel>().ReverseMap();
         CreateMap<Category, CategoryDb>().ReverseMap();
         CreateMap<Category, CategoryViewModel>().ReverseMap();
-        CreateMap<Post, PostDb>().ReverseMap();
+        // Маппинг для PostDb -> Post
+        CreateMap<PostDb, Post>()
+            .ForMember(dest => dest.Stars, opt => opt.MapFrom(src =>
+                src.Rates != null && src.Rates.Any()
+                    ? (int)Math.Round(src.Rates.Average(r => r.Points), 0)
+                    : 0))
+            .ForMember(dest => dest.ImagesPaths, opt => opt.MapFrom(src => src.ImagesPaths))
+            .ForMember(dest => dest.Car, opt => opt.MapFrom(src => src.Car))
+            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
+            .ReverseMap();
+
+        // Маппинг для CarDb -> Car
+        CreateMap<CarDb, Car>().ReverseMap();
+
         CreateMap<Post, PostForPostsViewModel>().ReverseMap();
     }
 }

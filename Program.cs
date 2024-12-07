@@ -8,6 +8,7 @@ using WheelDeal;
 using WheelDeal.Domain.Database;
 using WheelDeal.Models;
 using WheelDeal.Service.Interceptors;
+using WheelDeal.Service.Realizations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(AppMappingProfile));
+builder.Services.AddControllersWithViews();
 
 // Add context ApplicationDbContext as a service for our app.
 var connection = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
