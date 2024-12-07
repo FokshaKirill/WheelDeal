@@ -49,4 +49,41 @@ public class PostService : IPostService
             };
         }
     }
+
+    public BaseResponse<List<Post>> GetPostByFilter(PostFilter filter)
+    {
+        try
+        {
+            var postsFilter = GetAllPostsByIdCategory(filter.IdCategory).Data;
+
+            if (filter != null && postsFilter != null)
+            {
+                if (filter.PriceMin != 0)
+                {
+                    postsFilter = postsFilter
+                        .Where(f => f.Price < filter.PriceMax && f.Price > filter.PriceMin).ToList();
+                }
+
+                if (filter.FuelTypesList.Count != 0)
+                {
+                    postsFilter = postsFilter.Where(f => filter.FuelTypesList.Contains(f.Car.Fuel.ToString())).ToList();
+                }
+            }
+
+            return new BaseResponse<List<Post>>
+            {
+                Data = postsFilter,
+                Description = "Отфильтрованные данные",
+                StatusCode = StatusCode.OK
+            };
+        }
+        catch (Exception ex)
+        {
+            return new BaseResponse<List<Post>>
+            {
+                Description = ex.Message,
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
 }

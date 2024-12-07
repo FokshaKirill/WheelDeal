@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
 using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.ViewModels.LogAndReg;
-using WheelDeal.Models;
 using WheelDeal.Service.Interfaces;
 using WheelDeal.Service.Realizations;
 

@@ -237,7 +237,7 @@ table td {
     justify-content: center;
 }
     .price-filter,
-    .meal-types {
+    .fuel-types {
         margin: 30px 0;
     }
 
@@ -275,7 +275,7 @@ table td {
         cursor: pointer;
     }
 
-    .meal-types div {
+    .fuel-types div {
         margin-bottom: 10px;
     }
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WheelDeal.Domain.Database;
+using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.Database.ModelsDb;
 using WheelDeal.Domain.Database.Storage;
 using WheelDeal.Domain.Interfaces;
@@ -46,5 +47,30 @@ public class PostsController : Controller
         };
 
         return View(viewModel);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Filter([FromBody] PostFilter filter)
+    {
+        // Получаем результат фильтрации
+        var result = _postService.GetPostByFilter(filter);
+
+        // Ручное преобразование данных в список PostForPostsViewModel
+        var filteredPosts = result.Data.Select(post => new PostForPostsViewModel
+        {
+            Id = post.Id,
+            CarId = post.CarId,
+            CategoryId = post.CategoryId,
+            Description = post.Description,
+            Price = post.Price,
+            AvailabilityStatus = post.AvailabilityStatus,
+            CreatedAt = post.CreatedAt,
+            Stars = post.Stars,
+            ImagesPaths = post.ImagesPaths,
+            Car = _carStorage.GetAll().FirstOrDefault(c => c.Id == post.CarId) // Получение машины по ID
+        }).ToList();
+
+        // Возвращаем JSON-ответ
+        return Json(filteredPosts);
     }
 }

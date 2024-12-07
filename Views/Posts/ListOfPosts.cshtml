@@ -29,30 +29,73 @@
                     <span id="arend-max-label">@Math.Round(Model.Posts.Max(p => p.Price))</span>
                     <div style="padding: 0 10px; justify-content: space-between; color: #321939">Текущие значения: <span id="arend-price-values">0 - @Math.Round(Model.Posts.Max(p => p.Price))</span></div>
                 </div>
-                <div class="meal-types">
-                    <label class="title">Вид топлива: </label>
-                    <div>
-                        <input type="checkbox" id="meal-type-1" value="NoMeals" class="custom-checkbox">
-                        <label for="meal-type-1">Бензин</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="meal-type-2" value="Breakfast" class="custom-checkbox">
-                        <label for="meal-type-2">Дизель</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="meal-type-3" value="HalfBoard" class="custom-checkbox">
-                        <label for="meal-type-3">Газ</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="meal-type-4" value="AllInclusive" class="custom-checkbox">
-                        <label for="meal-type-4">Все включено</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="meal-type-5" value="UltraAllInclusive" class="custom-checkbox">
-                        <label for="meal-type-5">Ультра все включено</label>
-                    </div>
+                <div>
+                    <label for="brand">Марка:</label>
+                    <select id="brand">
+                        <option value="">Все</option>
+                        @{
+                            List<string?> brandsList = new List<string?>();
+
+                            brandsList = Model.Posts.GroupBy(x => x.Car.Brand).Select(x => x.First().Car.Brand.ToString()).ToList();
+                            
+                            foreach (var brand in brandsList)
+                            {
+                                <option value="@brand">@brand</option>
+                            }
+                        }
+                    </select>
                 </div>
-                <input id="idCountry" value="@Model. IdCountry" style="display: none"/>
+                <div>
+                    <label for="model">Модель:</label>
+                    <input type="text" id="model" placeholder="Введите модель">
+                </div>
+                <div>
+                    <label for="year">Год выпуска:</label>
+                    <input type="number" id="year" min="1990" max="2024" placeholder="От">
+                    <input type="number" id="year-max" min="1990" max="2024" placeholder="До">
+                </div>
+                <div>
+                    <label for="places">Количество мест:</label>
+                    <input type="number" id="places" min="2" max="8">
+                </div>
+                <div>
+                    <label for="engine">Объем двигателя:</label>
+                    <input type="number" id="engine" min="1.0" max="6.0" step="0.1" placeholder="Литры">
+                </div>
+                <div>
+                    <label for="mileage">Пробег:</label>
+                    <input type="number" id="mileage" min="0" max="300000" placeholder="Км">
+                </div>
+                <div>
+                    <label>Тип кузова:</label>
+                    <select id="body">
+                        <option value="">Все</option>
+                        <option value="sedan">Седан</option>
+                        <option value="suv">Внедорожник</option>
+                        <option value="hatchback">Хэтчбек</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Топливо:</label>
+                    <select id="fuel">
+                        <option value="">Все</option>
+                        <option value="petrol">Бензин</option>
+                        <option value="diesel">Дизель</option>
+                        <option value="electric">Электро</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Трансмиссия:</label>
+                    <select id="transmission">
+                        <option value="">Все</option>
+                        <option value="automatic">Автомат</option>
+                        <option value="manual">Механика</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="power">Мощность (л.с.):</label>
+                    <input type="number" id="power" min="50" max="1000" placeholder="Л.с.">
+                </div>
                 <div class="filter-button">
                     <button id="apply-filter">Применить фильтр</button>
                 </div>

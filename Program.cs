@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using WheelDeal;
 using WheelDeal.Domain.Database;
-using WheelDeal.Models;
 using WheelDeal.Service.Interceptors;
 using WheelDeal.Service.Realizations;
 

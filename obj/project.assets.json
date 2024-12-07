@@ -8958,6 +8958,7 @@
       "packagesPath": "C:\\Users\\foksa\\.nuget\\packages\\",
       "outputPath": "G:\\Study\\GitHub\\Practica November-December\\WheelDeal\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
