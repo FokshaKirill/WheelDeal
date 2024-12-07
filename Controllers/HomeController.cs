@@ -19,18 +19,10 @@ public class HomeController : Controller
     private readonly IAccountService _accountService;
     private readonly IWebHostEnvironment _appEnvironment;
     
-    private IMapper _mapper { get; set; }
-
-    MapperConfiguration mapperConfiguration = new MapperConfiguration(p =>
-    {
-        p.AddProfile<AppMappingProfile>();
-    });
-    
     public HomeController(ILogger<HomeController> logger, IAccountService accountService, IWebHostEnvironment appEnvironment)
     {
         _accountService = accountService;
         _logger = logger;
-        _mapper = mapperConfiguration.CreateMapper();
         _appEnvironment = appEnvironment;
     }
 

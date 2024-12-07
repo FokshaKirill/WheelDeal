@@ -30,6 +30,14 @@ h1 {
   text-align: center;
 }
 
+.header-elems {
+  max-width: 1320px;
+  padding-right: var(--bs-gutter-x, .75rem);
+  padding-left: var(--bs-gutter-x, .75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 p {
   margin: 5px;
   line-height: 1;
