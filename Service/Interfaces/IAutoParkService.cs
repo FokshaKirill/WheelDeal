@@ -5,5 +5,5 @@ namespace WheelDeal.Service.Interfaces;
 
 public interface IAutoParkService
 {
-    BaseResponse<List<Category>> GetAllCategories();
+    Task<BaseResponse<List<Category>>> GetAllCategories();
 }

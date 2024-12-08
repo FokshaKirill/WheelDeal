@@ -16,15 +16,23 @@ public class PostsController : Controller
 {
     private readonly IPostService _postService;
     private readonly IBaseStorage<CarDb> _carStorage;
+   
+    private IMapper _mapper { get; set; }
 
-    public PostsController(IPostService postService, IBaseStorage<CarDb> carStorage)
+    private MapperConfiguration mapperConfiguration = new MapperConfiguration(p =>
+    {
+        p.AddProfile<AppMappingProfile>();
+    });
+    
+    public PostsController(IPostService postService, IBaseStorage<CarDb> carStorage, IMapper mapper)
     {
         _postService = postService;
         _carStorage = carStorage;
+        _mapper = mapperConfiguration.CreateMapper();
     }
-
+    
     public IActionResult ListOfPosts(Guid id)
-    {
+        {
         var result = _postService.GetAllPostsByIdCategory(id);
 
         var viewModel = new ListOfPostsViewModel
@@ -46,5 +54,14 @@ public class PostsController : Controller
         };
 
         return View(viewModel);
+    }
+
+    public async Task<IActionResult> PostPage(Guid id)
+    {
+        var resultPost = await _postService.GetPostById(id);
+        
+        PostPageViewModel postPage = _mapper.Map<PostPageViewModel>(resultPost.Data);
+        
+        return View(postPage);
     }
 }

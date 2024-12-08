@@ -49,4 +49,37 @@ public class PostService : IPostService
             };
         }
     }
+
+    public async Task<BaseResponse<Post>> GetPostById(Guid id)
+    {
+        try
+        {
+            var postDb = await _postStorage.Get(id);
+
+            var result = _mapper.Map<Post>(postDb);
+
+            if (result == null)
+            {
+                return new BaseResponse<Post>()
+                {
+                    Description = "Найдено 0 элементов",
+                    StatusCode = StatusCode.OK
+                };
+            }
+            
+            return new BaseResponse<Post>()
+            {
+                Data = result,
+                StatusCode = StatusCode.OK
+            };
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<Post>()
+            {
+                Description = e.Message,
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
 }

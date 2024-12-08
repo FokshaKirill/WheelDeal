@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using WheelDeal;
 using WheelDeal.Domain.Database;
-using WheelDeal.Models;
 using WheelDeal.Service.Interceptors;
 using WheelDeal.Service.Realizations;
 

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.Database.ModelsDb;
 using WheelDeal.Domain.Database.Responses;
@@ -28,12 +29,13 @@ public class AutoParkService : IAutoParkService
         _validationRules = new CategoryValidator();
     }
 
-    public BaseResponse<List<Category>> GetAllCategories()
+    public async Task<BaseResponse<List<Category>>> GetAllCategories()
     {
         try
         {
-            var categoriesDb = _categoryStorage.GetAll().OrderBy(c => c.Name).ToList();
+            var categoriesDb = await _categoryStorage.GetAll().OrderBy(c => c.Name).ToListAsync();
             var result = _mapper.Map<List<Category>>(categoriesDb);
+            
             if (result.Count == 0)
                 return new BaseResponse<List<Category>>()
                 {

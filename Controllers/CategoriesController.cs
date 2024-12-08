@@ -23,9 +23,9 @@ public class CategoriesController : Controller
         _mapper = mapperConfiguration.CreateMapper();
     }
 
-    public IActionResult ListOfCategories()
+    public async Task <IActionResult> ListOfCategories()
     {
-        var result = _autoParkService.GetAllCategories();
+        var result = await _autoParkService.GetAllCategories();
         var listOfPosts = _mapper.Map<List<CategoryViewModel>>(result.Data);
         
         return View(listOfPosts);

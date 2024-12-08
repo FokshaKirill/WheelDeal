@@ -1,0 +1,43 @@
+﻿@model WheelDeal.Domain.ViewModels.Posts.PostPageViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Туры";
+}
+
+<div class="post">
+    <div class="post-header">
+        <h3>@Model.Car.Brand @Model.Car.Model (@Model.Car.Year)</h3>
+    </div>
+    <div class="post-details">
+        <div class="post-images">
+            <img id="main-image" src="@Model.ImagesPaths.FirstOrDefault()" alt="@Model.Car.Brand" class="main-image">
+            <div class="thumbnail-container">
+                <img src="@Model.ImagesPaths.FirstOrDefault()" alt="Thumbnail" class="thumbnail" onclick="changeImage(this)">
+                @foreach (var picture in Model.ImagesPaths)
+                {
+                    <img src="@picture" alt="Thumbnail" class="thumbnail" onclick="changeImage(this)">
+                }
+            </div>
+            
+            <script>
+                function changeImage(thumbnail) {
+                    const mainImage = document.getElementById("main-image");
+                    mainImage.src = thumbnail.src;
+                }
+            </script>   
+        </div>
+        
+        <div class="post-info">
+            <h3>@Model.Car.Brand @Model.Car.Model (@Model.Car.Year)</h3>
+            <p><strong>Год: </strong>@Model.Car.Year</p>
+            <p class="description"><strong>Описание: </strong>@Model.Description</p>
+            <p><strong>Звёзды: </strong>@for (int i = 0; i < Model. Stars; i++)
+                {
+                    <img src="/images/star.png" alt="Star" class="star">
+                }
+            </p>
+            <p><strong>Тип топлива:</strong> @Model.Car.Fuel</p>
+            <p><strong>Цена за взрослого:</strong> @Model.Price р/день</p>
+        </div>
+    </div>
+</div>

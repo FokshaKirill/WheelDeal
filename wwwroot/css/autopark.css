@@ -1,8 +1,8 @@
 ﻿/* Сетка */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Автоматически подгоняет элементы */ 
-    gap: 15px; /* Расстояние между карточками */ 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Автоматически подгоняет элементы */
+    gap: 15px; /* Расстояние между карточками */
     padding: 20px;
 }
 
@@ -22,28 +22,28 @@
     cursor: pointer;
     border: violet 1px solid;
 }
-    /* Изображение
-    */
-    .card-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease-in-out;
-    }
-        /* Название и текстовый блок */
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.0); /* Начальная прозрачность */
-            transition: background 0.5s ease-in-out;
-        }
+/* Изображение
+*/
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+/* Название и текстовый блок */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.0); /* Начальная прозрачность */
+    transition: background 0.5s ease-in-out;
+}
 
 /* Название (всегда видно внизу) */
 .card-title {
@@ -65,23 +65,23 @@
     margin-top: 0;
     display: none;
     font-family: MontserratusLight;
-    
+
 }
-    /* При наведении */
-    .card-category:hover .card-image { 
-        transform: scale(1.1); /* Увеличение картинки */
-    }
-        .card-category:hover .card-overlay {
-            background: rgba(0, 0, 0, 0.6); /* Затемнение всей карточки */
-            justify-content: center; /* Центрируем контент */
-        }
-        .card-category:hover .card-title {
-            transform: translateY(-50%); /* Поднимаем название */
-            background: none; /* Убираем фон у названия */
-        }
-        .card-category:hover .card-description { 
-            display: block; /* Показываем описание */
-        }
+/* При наведении */
+.card-category:hover .card-image {
+    transform: scale(1.1); /* Увеличение картинки */
+}
+.card-category:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.6); /* Затемнение всей карточки */
+    justify-content: center; /* Центрируем контент */
+}
+.card-category:hover .card-title {
+    transform: translateY(-50%); /* Поднимаем название */
+    background: none; /* Убираем фон у названия */
+}
+.card-category:hover .card-description {
+    display: block; /* Показываем описание */
+}
 
 .container-list-posts {
     width: 100%;
@@ -123,7 +123,7 @@
     flex-wrap: wrap;
     gap: 10px;
 }
-    
+
 .post-item {
     display: flex;
     background-color: #ffffff;
@@ -151,7 +151,7 @@
     height: auto;
     padding: 8px;
     border: 0;
-    
+
 }
 
 p {
@@ -236,16 +236,16 @@ table td {
     display: flex;
     justify-content: center;
 }
-    .price-filter,
-    .meal-types {
-        margin: 30px 0;
-    }
+.price-filter,
+.fuel-types {
+    margin: 30px 0;
+}
 
 .price-filter input[type="range"] {
     -webkit-appearance: none; /* Убираем стандартный стиль */
     width: 100%;
     height: 8px;
-    background: #ccc; 
+    background: #ccc;
     border-radius: 5px;
     outline: none;
 }
@@ -267,22 +267,22 @@ table td {
     cursor: pointer;
 }
 
-    .price-filter input[type="range"]::-ms-thumb {
-        width: 20px;
-        height: 20px;
-        background: #B73CFFCC;
-        border-radius: 50%;
-        cursor: pointer;
-    }
+.price-filter input[type="range"]::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: #B73CFFCC;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
-    .meal-types div {
-        margin-bottom: 10px;
-    }
+.fuel-types div {
+    margin-bottom: 10px;
+}
 
 .custom-checkbox {
-display: none;
+    display: none;
 }
-    
+
 .custom-checkbox + label {
     position: relative;
     padding-left: 30px;
@@ -305,7 +305,7 @@ display: none;
 }
 
 .custom-checkbox:checked + label::before {
-    background-color:  #B73CFFCC; 
+    background-color:  #B73CFFCC;
     border-color:  #B73CFFCC;
 }
 
@@ -340,25 +340,25 @@ display: none;
     color: #62466b;
     position: initial;
 }
-    .filter-button {
-        display: flex;
-        justify-content: center;
-    }
-        .filter-button button {
-            padding: 15px 15px;
-            background-color: #B73CFFCC;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 17px;
-            font-weight: bold;
-            margin: 20px;
-        }
-            .filter-button button:hover {
-                background-color: black;
-                transition: 0.2s;
-            }
+.filter-button {
+    display: flex;
+    justify-content: center;
+}
+.filter-button button {
+    padding: 15px 15px;
+    background-color: #B73CFFCC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 20px;
+}
+.filter-button button:hover {
+    background-color: black;
+    transition: 0.2s;
+}
 
 /* Блок сортировки */
 .sorts {
@@ -378,19 +378,98 @@ display: none;
     color: #333333;
 }
 
-    .sorts select {
-        padding: 5px 10px;
-        font-size: 14px;
-        border: 0;
-        border-radius: 4px;
-        background-color: transparent;
-        cursor: pointer;
-        justify-self: right;
-        justify-items: right;
-        text-align: right;
-        width: fit-content;
+.sorts select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    justify-self: right;
+    justify-items: right;
+    text-align: right;
+    width: fit-content;
+}
+
+select option {
+    border-top: 0;
+}
+
+.filter-div {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.filter-div input, select {
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: inherit;
+}
+
+.tour {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.tour-images {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 60%;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+    border: 2px solid #007bff;
+}
+
+.description {
+    white-space: pre-line;
+}
+
+.tour-info {
+    flex: 2;
+    padding: 20px;
+}
+
+    .tour-info h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
     }
     
-    select option {
-        border-top: 0;
+    .tour-info p {
+        margin: 10px 0;
+        font-size: 1rem;
+        line-height: 1.5;
     }
