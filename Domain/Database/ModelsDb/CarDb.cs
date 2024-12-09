@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace WheelDeal.Domain.Database.ModelsDb;
 
@@ -42,6 +43,7 @@ public class CarDb
 
     [Column("power")]
     public int Power { get; set; }
-
+    
+    [JsonIgnore]
     public ICollection<PostDb> Posts { get; set; }
 }

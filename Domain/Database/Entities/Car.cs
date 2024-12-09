@@ -1,4 +1,6 @@
-﻿namespace WheelDeal.Domain.Database.Entities;
+﻿using System.Text.Json.Serialization;
+
+namespace WheelDeal.Domain.Database.Entities;
 
 public class Car
 {
@@ -15,5 +17,6 @@ public class Car
     public decimal FuelConsumption { get; set; }
     public int Power { get; set; }
 
+    [JsonIgnore]
     public ICollection<Post> Posts { get; set; }
 }

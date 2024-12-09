@@ -55,23 +55,31 @@
             posts.forEach(post => postsContainer.appendChild(post));
         });
 
-        document.getElementById('apply-filter').addEventListener('click', () => {
+        document.getElementById('apply-filter').addEventListener('click', applyFilter);
+
+        
+        
+        function  applyFilter() {
+            console.log('Button clicked');
             // Сбор данных из ползунков
             const arendMin = document.getElementById('arend-min-price').value;
             const arendMax = document.getElementById('arend-max-price').value;
             const CategoryId = document.getElementById('CategoryId').value;
 
-            // Сбор данных из чекбоксов
-            const fuelTypes = Array.from(
-                document.querySelectorAll('#fuel input[type="checkbox"]:checked')
-            ).map((checkbox) => checkbox.value);
+            // const fuelTypes = Array.from(
+            //     document.querySelectorAll('#fuel input[type="checkbox"]:checked')
+            // ).map((checkbox) => checkbox.value);
+            //
+            // if (fuelTypes.length === 0) {
+            //     fuelTypes.push("Бензин", "Дизель", "Электрический");
+            // }
 
             // Формирование данных для отправки
             const filterData = {
                 CategoryId: CategoryId,
                 priceMin: arendMin,
                 priceMax: arendMax,
-                fuelTypes: fuelTypes,
+                // fuelTypes: fuelTypes
             };
 
             console.log('Отправляем данные:', filterData);
@@ -83,59 +91,76 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(filterData),
-            })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Ошибка при фильтрации данных');
-                }
-                return response.json(); // Преобразуем ответ в JSON
-            })
-            .then((data) => {
-                console.log('Результаты фильтрации:', data);
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка при фильтрации данных');
+                    }
+                    return response.json(); // Преобразуем ответ в JSON
+                })
+                .then((data) => {
+                    console.log('Результаты фильтрации:', data);
 
-                dataDisplay(data); // Отображаем полученные данные
-            })
-            .catch((error) => {
-                console.error('Ошибка:', error);
+                    dataDisplay(data); // Отображаем полученные данные
+                })
+                .catch((error) => {
+                    console.error('Ошибка:', error);
             });
-        });
+        }
 
         function dataDisplay(data) {
-            // Найти контейнер для списка постов
             const postsList = document.querySelector('.list-posts');
-            postsList.innerHTML = ''; // Очистить старые данные
+            postsList.innerHTML = '';
 
             if (!data || data.length === 0) {
-                // Если нет данных, отображаем сообщение
                 const noPostsMessage = `<h2>По данному фильтру нет постов</h2>`;
                 postsList.innerHTML = noPostsMessage;
             } else {
-                // Если данные есть, создаем элементы для постов
                 data.forEach((post) => {
-                    const availabilityColor = post.availabilityStatus ? '#37f100' : '#f10000'; // Задаем цвет фона
+                    const availabilityColor = post.availabilityStatus ? '#37f100' : '#f10000';
                     const postItem = `
-                        <div class="list-posts">
-                            <div class="post-item" data-price="${post.price}" data-stars="${post.stars}">
-                                <div class="item-stars">
-                                    <img src="/images/star.png" class="star" />
-                                    <p style="margin: 2px">${post.stars}</p>
-                                </div>
-                                <img src="${post.imagePath || '/images/posts/default.png'}" class="item-post-img" />
-                                <div class="item-info">
-                                    <h6>${post.carBrand ?? ''} ${post.carModel ?? ''} (${post.carYear ?? ''})</h6>
-                                    <p>${post.description}</p>
-                                    <div class="available-status" style="background-color: ${availabilityColor};"></div>
-                                    <button class="post-item-btn">${post.price} р/день</button>
-                                    <p style="margin: 4px 0 0 0; color: #494848; font-size: 12px; text-align: right">${post.createdAt}</p>
-                                </div>
-                                <input type="hidden" value="${post.id}" />
-                                <input type="hidden" value="${post.categoryId}" />
-                            </div>
-                        </div>
-                    `;
-                    postsList.innerHTML += postItem; // Добавить пост в список
+                <div class="post-item" data-price="${post.price}" data-stars="${post.stars}" 
+                    data-id="${post.id}" data-car-id="${post.carId}" data-category-id="${post.categoryId}" 
+                    data-car="${encodeURIComponent(post.car)}" data-description="${encodeURIComponent(post.description)}" 
+                    data-price="${post.price}" data-availability-status="${post.availabilityStatus}" data-created-at="${post.createdAt}">
+                    <div class="item-stars">
+                        <img src="/images/star.png" class="star" />
+                        <p style="margin: 2px">${post.stars}</p>
+                    </div>
+                    <img src="${post.imagesPaths.length > 0 ? post.imagesPaths[0] : '/images/posts/default.png'}" class="item-post-img" />
+                    <div class="item-info">
+                        <h6>${post.car.brand ?? ''} ${post.car.model ?? ''} (${post.car.year ?? ''})</h6>
+                        <p>${post.description}</p>
+                        <div class="available-status" style="background-color: ${availabilityColor};"></div>
+                        <button class="post-item-btn">${post.price} р/день</button>
+                        <p style="margin: 4px 0 0 0; color: #494848; font-size: 12px; text-align: right">${post.createdAt}</p>
+                    </div>
+                    <input type="hidden" value="${post.id}" />
+                    <input type="hidden" value="${post.categoryId}" id="CategoryId"/>
+                </div>
+            `;
+                    postsList.innerHTML += postItem;
+                });
+
+                // Add click event listener to each post-item to redirect
+                const postItems = document.querySelectorAll('.post-item');
+                postItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const id = item.getAttribute('data-id');
+                        const carId = item.getAttribute('data-car-id');
+                        const categoryId = item.getAttribute('data-category-id');
+                        const car = item.getAttribute('data-car');
+                        const description = item.getAttribute('data-description');
+                        const price = item.getAttribute('data-price');
+                        const availabilityStatus = item.getAttribute('data-availability-status');
+                        const createdAt = item.getAttribute('data-created-at');
+
+                        const url = `/Posts/PostPage?Id=${id}&CarId=${carId}&CategoryId=${categoryId}&Car=${encodeURIComponent(car)}&Description=${encodeURIComponent(description)}&Price=${price}&AvailabilityStatus=${availabilityStatus}&CreatedAt=${createdAt}`;
+                        window.location.href = url;
+                    });
                 });
             }
         }
+
     }
 });

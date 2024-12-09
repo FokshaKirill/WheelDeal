@@ -91,20 +91,20 @@ public class PostService : IPostService
     {
         try
         {
-            var postsFilter = GetAllPostsByIdCategory(filter.IdCategory).Data;
+            var postsFilter = GetAllPostsByIdCategory(filter.CategoryId).Data;
 
             if (filter != null && postsFilter != null)
             {
                 if (filter.PriceMax != 1000000 || filter.PriceMin != 0)
                 {
-                    postsFilter = postsFilter.Where(p => p.Price < filter.PriceMax && p.Price > filter.PriceMin)
+                    postsFilter = postsFilter.Where(p => p.Price <= filter.PriceMax && p.Price > filter.PriceMin)
                         .ToList();
                 }
 
-                if (filter.FuelTypes.Count > 0)
-                {
-                    postsFilter = postsFilter.Where(p => filter.FuelTypes.Contains(p.Car.Fuel.ToString())).ToList();
-                }
+                // if (filter.FuelTypes.Count > 0)
+                // {
+                //     postsFilter = postsFilter.Where(p => filter.FuelTypes.Contains(p.Car.Fuel.ToString())).ToList();
+                // }
             }
 
             return new BaseResponse<List<Post>>

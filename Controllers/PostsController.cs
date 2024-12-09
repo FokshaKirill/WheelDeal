@@ -13,6 +13,7 @@ using WheelDeal.Service.Realizations;
 
 namespace WheelDeal.Controllers;
 
+[Route("Posts/[action]")]
 public class PostsController : Controller
 {
     private readonly IPostService _postService;
@@ -66,6 +67,7 @@ public class PostsController : Controller
         return View(postPage);
     }
 
+    [HttpPost]
     public async Task<IActionResult> Filter([FromBody] PostFilter filter)
     {
         var result = _postService.GetPostByFilter(filter);
