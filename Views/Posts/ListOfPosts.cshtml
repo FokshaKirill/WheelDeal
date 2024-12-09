@@ -32,76 +32,76 @@
                     <span id="arend-max-label">@Math.Round(Model.Posts.Max(p => p.Price))</span>
                     <div style="padding: 0 10px; justify-content: space-between; color: #321939">Текущие значения: <span id="arend-price-values">0 - @Math.Round(Model.Posts.Max(p => p.Price))</span></div>
                 </div>
-                <div class="filter-div">
-                    <label for="brand">Марка:</label>
-                    <select id="brand">
-                        <option value="">Все</option>
-                        @{
-                            List<string?> brandsList = new List<string?>();
-
-                            brandsList = Model.Posts.GroupBy(x => x.Car.Brand).Select(x => x.First().Car.Brand.ToString()).ToList();
-
-                            foreach (var brand in brandsList)
-                            {
-                                <option value="@brand">@brand</option>
-                            }
-                        }
-                    </select>
-                </div>
-                <div class="filter-div">
-                    <label for="model">Модель:</label>
-                    <select id="model">
-                        <option value="">Все</option>
-                        @{
-                            List<string?> modelsList = new List<string?>();
-
-                            modelsList = Model.Posts.GroupBy(x => x.Car.Model).Select(x => x.First().Car.Model.ToString()).ToList();
-
-                            foreach (var modelCar in modelsList)
-                            {
-                                <option value="@modelCar">@modelCar</option>
-                            }
-                        }
-                    </select>
-                </div>
-                <div class="filter-div">
-                    <label for="year">Год выпуска:</label>
-                    <input type="number" id="year" min="1990" max="2024" placeholder="От">
-                    <input type="number" id="year-max" min="1990" max="2024" placeholder="До">
-                </div>
-                <div class="filter-div">
-                    <label for="places">Количество мест:</label>
-                    <input type="number" id="places" min="2" max="8">
-                </div>
-                <div class="filter-div">
-                    <label for="engine">Объем двигателя:</label>
-                    <input type="number" id="engine" min="1.0" max="6.0" step="0.1" placeholder="Литры">
-                </div>
-                <div class="filter-div">
-                    <label for="mileage">Пробег:</label>
-                    <input type="number" id="mileage" min="0" max="300000" placeholder="Км">
-                </div>
-                <div class="filter-div">
-                    <label>Топливо:</label>
-                    <select id="fuel">
-                        <option value="">Все</option>
-                        <option value="petrol">Бензин</option>
-                        <option value="diesel">Дизель</option>
-                        <option value="electric">Электро</option>
-                    </select>
-                </div>
-                <div class="filter-div">
-                    <label>Трансмиссия:</label>
-                    <select id="transmission">
-                        <option value="">Все</option>
-                        <option value="automatic">Автомат</option>
-                        <option value="manual">Механика</option>
-                    </select>
-                </div>
-                <div class="filter-div">
-                    <label for="power">Мощность (л.с.):</label>
-                    <input type="number" id="power" min="50" max="1000" placeholder="Л.с.">
-                </div>
+                @* <div class="filter-div"> *@
+                @*     <label for="brand">Марка:</label> *@
+                @*     <select id="brand"> *@
+                @*         <option value="">Все</option> *@
+                @*         @{ *@
+                @*             List<string?> brandsList = new List<string?>(); *@
+                @* *@
+                @*             brandsList = Model.Posts.GroupBy(x => x.Car.Brand).Select(x => x.First().Car.Brand.ToString()).ToList(); *@
+                @* *@
+                @*             foreach (var brand in brandsList) *@
+                @*             { *@
+                @*                 <option value="@brand">@brand</option> *@
+                @*             } *@
+                @*         } *@
+                @*     </select> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label for="model">Модель:</label> *@
+                @*     <select id="model"> *@
+                @*         <option value="">Все</option> *@
+                @*         @{ *@
+                @*             List<string?> modelsList = new List<string?>(); *@
+                @* *@
+                @*             modelsList = Model.Posts.GroupBy(x => x.Car.Model).Select(x => x.First().Car.Model.ToString()).ToList(); *@
+                @* *@
+                @*             foreach (var modelCar in modelsList) *@
+                @*             { *@
+                @*                 <option value="@modelCar">@modelCar</option> *@
+                @*             } *@
+                @*         } *@
+                @*     </select> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label for="year">Год выпуска:</label> *@
+                @*     <input type="number" id="year" min="1990" max="2024" placeholder="От"> *@
+                @*     <input type="number" id="year-max" min="1990" max="2024" placeholder="До"> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label for="places">Количество мест:</label> *@
+                @*     <input type="number" id="places" min="2" max="8"> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label for="engine">Объем двигателя:</label> *@
+                @*     <input type="number" id="engine" min="1.0" max="6.0" step="0.1" placeholder="Литры"> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label for="mileage">Пробег:</label> *@
+                @*     <input type="number" id="mileage" min="0" max="300000" placeholder="Км"> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label>Топливо:</label> *@
+                @*     <select id="fuel"> *@
+                @*         <option value="">Все</option> *@
+                @*         <option value="petrol">Бензин</option> *@
+                @*         <option value="diesel">Дизель</option> *@
+                @*         <option value="electric">Электро</option> *@
+                @*     </select> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label>Трансмиссия:</label> *@
+                @*     <select id="transmission"> *@
+                @*         <option value="">Все</option> *@
+                @*         <option value="automatic">Автомат</option> *@
+                @*         <option value="manual">Механика</option> *@
+                @*     </select> *@
+                @* </div> *@
+                @* <div class="filter-div"> *@
+                @*     <label for="power">Мощность (л.с.):</label> *@
+                @*     <input type="number" id="power" min="50" max="1000" placeholder="Л.с."> *@
+                @* </div> *@
                 <div class="filter-button">
                     <button id="apply-filter">Применить фильтр</button>
                 </div>

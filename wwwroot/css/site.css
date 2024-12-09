@@ -609,7 +609,5 @@ footer .footer-right a {
   height: 100%;
   padding-top: 10px;
   line-height: 1.5;
-  overflow: visible;
-  white-space: normal;
-  word-wrap: break-word;
+  display: -webkit-box;
 }

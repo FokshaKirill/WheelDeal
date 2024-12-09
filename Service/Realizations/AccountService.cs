@@ -120,8 +120,7 @@ public class AccountService : IAccountService
         }
     }
 
-    public async Task<BaseResponse<ClaimsIdentity>> ConfirmEmail(ConfirmEmailViewModel model, string code,
-        string confirmCode)
+    public async Task<BaseResponse<ClaimsIdentity>> ConfirmEmail(ConfirmEmailViewModel model, string code, string confirmCode)
     {
         try
         {
