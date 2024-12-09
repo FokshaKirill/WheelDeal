@@ -30,7 +30,7 @@ public class AppMappingProfile : Profile
 
         CreateMap<CarDb, Car>().ReverseMap();
         CreateMap<Post, PostPageViewModel>().ReverseMap();
-
+        CreateMap<PostFilter, PostForPostsViewModel>().ReverseMap();
         CreateMap<Post, PostForPostsViewModel>().ReverseMap();
     }
 }

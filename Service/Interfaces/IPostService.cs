@@ -8,4 +8,6 @@ public interface IPostService
     BaseResponse<List<Post>> GetAllPostsByIdCategory(Guid id);
 
     Task<BaseResponse<Post>> GetPostById(Guid id);
+    
+    BaseResponse<List<Post>> GetPostByFilter(PostFilter filter);
 }

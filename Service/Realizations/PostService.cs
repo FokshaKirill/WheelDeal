@@ -12,11 +12,13 @@ namespace WheelDeal.Service.Realizations;
 public class PostService : IPostService
 {
     private readonly IBaseStorage<PostDb> _postStorage;
+    private readonly IBaseStorage<CarDb> _carStorage;
     private readonly IMapper _mapper;
 
-    public PostService(IBaseStorage<PostDb> postStorage, IMapper mapper)
+    public PostService(IBaseStorage<PostDb> postStorage, IMapper mapper, IBaseStorage<CarDb> carStorage)
     {
         _postStorage = postStorage;
+        _carStorage = carStorage;
         _mapper = mapper;
     }
 
@@ -55,9 +57,11 @@ public class PostService : IPostService
         try
         {
             var postDb = await _postStorage.Get(id);
+            var carDb = await _carStorage.Get(postDb.CarId);
 
             var result = _mapper.Map<Post>(postDb);
-
+            result.Car = _mapper.Map<Car>(carDb);
+            
             if (result == null)
             {
                 return new BaseResponse<Post>()
@@ -78,6 +82,44 @@ public class PostService : IPostService
             return new BaseResponse<Post>()
             {
                 Description = e.Message,
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
+
+    public BaseResponse<List<Post>> GetPostByFilter(PostFilter filter)
+    {
+        try
+        {
+            var postsFilter = GetAllPostsByIdCategory(filter.IdCategory).Data;
+
+            if (filter != null && postsFilter != null)
+            {
+                if (filter.PriceMax != 1000000 || filter.PriceMin != 0)
+                {
+                    postsFilter = postsFilter.Where(p => p.Price < filter.PriceMax && p.Price > filter.PriceMin)
+                        .ToList();
+                }
+
+                if (filter.FuelTypes.Count > 0)
+                {
+                    postsFilter = postsFilter.Where(p => filter.FuelTypes.Contains(p.Car.Fuel.ToString())).ToList();
+                }
+            }
+
+            return new BaseResponse<List<Post>>
+            {
+                Data = postsFilter,
+                Description = "Отфильтрованные данные",
+                StatusCode = StatusCode.OK
+            };
+
+        }
+        catch (Exception ex)
+        {
+            return new BaseResponse<List<Post>>
+            {
+                Description = ex.Message,
                 StatusCode = StatusCode.InternalServerError
             };
         }

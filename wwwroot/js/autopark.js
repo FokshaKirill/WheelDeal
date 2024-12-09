@@ -1,6 +1,6 @@
 ﻿document.addEventListener("DOMContentLoaded", function() {
     // Обновление отображения цен при изменении ползунков
-    if (window.location.pathname.toString().includes("/Posts/")) {
+    if (window.location.pathname.toString().includes("/Posts/") && !window.location.pathname.toString().includes("/PostPage/")) {
         document.getElementById('arend-min-price').addEventListener('input', updatePriceValues);
         document.getElementById('arend-max-price').addEventListener('input', updatePriceValues);
 
@@ -43,6 +43,9 @@
                         const starsB = parseInt(b.dataset.stars);
                         return starsB - starsA; // Сортировка по убыванию количества звезд
                     }
+                    case '': {
+                        location.reload()
+                    }
                     default:
                         return 0; // Без изменений
                 }
@@ -54,7 +57,6 @@
 
         document.getElementById('apply-filter').addEventListener('click', () => {
             // Сбор данных из ползунков
-            console.log('Кнопка "Применить фильтр" нажата');
             const arendMin = document.getElementById('arend-min-price').value;
             const arendMax = document.getElementById('arend-max-price').value;
             const CategoryId = document.getElementById('CategoryId').value;
@@ -116,14 +118,14 @@
                             <div class="post-item" data-price="${post.price}" data-stars="${post.stars}">
                                 <div class="item-stars">
                                     <img src="/images/star.png" class="star" />
-                                    <p style="margin-left: 2px">${post.stars}</p>
+                                    <p style="margin: 2px">${post.stars}</p>
                                 </div>
                                 <img src="${post.imagePath || '/images/posts/default.png'}" class="item-post-img" />
                                 <div class="item-info">
                                     <h6>${post.carBrand ?? ''} ${post.carModel ?? ''} (${post.carYear ?? ''})</h6>
                                     <p>${post.description}</p>
                                     <div class="available-status" style="background-color: ${availabilityColor};"></div>
-                                    <button class="post-item-btn">(${post.price}) р/день</button>
+                                    <button class="post-item-btn">${post.price} р/день</button>
                                     <p style="margin: 4px 0 0 0; color: #494848; font-size: 12px; text-align: right">${post.createdAt}</p>
                                 </div>
                                 <input type="hidden" value="${post.id}" />

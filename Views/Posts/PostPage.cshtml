@@ -4,40 +4,45 @@
     ViewData["Title"] = "Туры";
 }
 
-<div class="post">
-    <div class="post-header">
-        <h3>@Model.Car.Brand @Model.Car.Model (@Model.Car.Year)</h3>
-    </div>
-    <div class="post-details">
-        <div class="post-images">
-            <img id="main-image" src="@Model.ImagesPaths.FirstOrDefault()" alt="@Model.Car.Brand" class="main-image">
-            <div class="thumbnail-container">
-                <img src="@Model.ImagesPaths.FirstOrDefault()" alt="Thumbnail" class="thumbnail" onclick="changeImage(this)">
-                @foreach (var picture in Model.ImagesPaths)
-                {
-                    <img src="@picture" alt="Thumbnail" class="thumbnail" onclick="changeImage(this)">
-                }
+<section class="section-body">
+    <section class="section glow">
+        <div class="post">
+            <div class="post-header">
+                <h3>@Model.Car.Brand @Model.Car.Model (@Model.Car.Year)</h3>
             </div>
-            
-            <script>
-                function changeImage(thumbnail) {
-                    const mainImage = document.getElementById("main-image");
-                    mainImage.src = thumbnail.src;
-                }
-            </script>   
+            <div class="post-details">
+                <div class="post-images">
+                    <img id="main-image" src="@Model.ImagesPaths.FirstOrDefault()" alt="@Model.Car.Brand" class="main-image">
+                    <div class="thumbnail-container">
+                        @foreach (var picture in Model.ImagesPaths)
+                        {
+                            <img src="@picture" alt="Thumbnail" class="thumbnail" onclick="changeImage(this)">
+                        }
+                    </div>
+                    
+                    <script>
+                        function changeImage(thumbnail) {
+                            const mainImage = document.getElementById("main-image");
+                            mainImage.src = thumbnail.src;
+                        }
+                    </script>   
+                </div>
+
+                <div class="post-info">
+                    <h3>@Model.Car.Brand @Model.Car.Model (@Model.Car.Year)</h3>
+                    <p class="description"><strong>Описание: </strong>@Model.Description</p>
+                    <p><strong>Звёзды: </strong>@Model.Stars</p>
+                    <p><strong>Тип топлива: </strong>@Model.Car.Fuel</p>
+                    <p><strong>Цена за взрослого: </strong>@Model.Price р/день</p>
+                    <p><strong>Места: </strong>@Model.Car.PlacesCount</p>
+                    <p><strong>Двигатель: </strong>@Model.Car.EngineValue л</p>
+                    <p><strong>Пробег: </strong>@Model.Car.Mileage км</p>
+                    <p><strong>Коробка передач: </strong>@Model.Car.Transmission</p>
+                    <p><strong>Расход топлива: </strong>@Model.Car.FuelConsumption л/100 км</p>
+                    <p><strong>Мощность: </strong>@Model.Car.Power л.с.</p>
+                </div>
+
+            </div>
         </div>
-        
-        <div class="post-info">
-            <h3>@Model.Car.Brand @Model.Car.Model (@Model.Car.Year)</h3>
-            <p><strong>Год: </strong>@Model.Car.Year</p>
-            <p class="description"><strong>Описание: </strong>@Model.Description</p>
-            <p><strong>Звёзды: </strong>@for (int i = 0; i < Model. Stars; i++)
-                {
-                    <img src="/images/star.png" alt="Star" class="star">
-                }
-            </p>
-            <p><strong>Тип топлива:</strong> @Model.Car.Fuel</p>
-            <p><strong>Цена за взрослого:</strong> @Model.Price р/день</p>
-        </div>
-    </div>
-</div>
+    </section>
+</section>

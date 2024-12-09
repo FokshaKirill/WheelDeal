@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WheelDeal.Domain.Database;
+using WheelDeal.Domain.Database.Entities;
 using WheelDeal.Domain.Database.ModelsDb;
 using WheelDeal.Domain.Database.Storage;
 using WheelDeal.Domain.Interfaces;
@@ -59,9 +60,18 @@ public class PostsController : Controller
     public async Task<IActionResult> PostPage(Guid id)
     {
         var resultPost = await _postService.GetPostById(id);
-        
+
         PostPageViewModel postPage = _mapper.Map<PostPageViewModel>(resultPost.Data);
         
         return View(postPage);
+    }
+
+    public async Task<IActionResult> Filter([FromBody] PostFilter filter)
+    {
+        var result = _postService.GetPostByFilter(filter);
+        
+        var filteredPosts = _mapper.Map<List<PostForPostsViewModel>>(result.Data);
+
+        return Json(filteredPosts);
     }
 }

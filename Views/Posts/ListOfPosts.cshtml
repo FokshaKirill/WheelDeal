@@ -13,7 +13,8 @@
         <div class="sorts">
             <select id="sort-options">
                 <option value="">Лучшее совпадение</option>
-                <option value="price-arend-asc">Цена (по возрастанию)</option> <option value="price-arend-desc">Цена (по убыванию)</option>
+                <option value="price-arend-asc">Цена (по возрастанию)</option> 
+                <option value="price-arend-desc">Цена (по убыванию)</option>
                 <option value="stars-asc">Количество звезд (по возрастанию)</option>
                 <option value="stars-desc">Количество звезд (по убыванию)</option>
             </select>
@@ -112,7 +113,7 @@
                         <div class="post-item" data-price="@item.Price" data-stars="@item.Stars" onclick="window.location.href = `@Url.Action("PostPage", "Posts", item)`">
                             <div class="item-stars">
                                 <img src="~/images/star.png" class="star"/>
-                                <p style="margin-left: 2px">@item.Stars</p>
+                                <p style="margin: 2px">@item.Stars</p>
                             </div>
                             @if (item.ImagesPaths.Count > 0)
                             {
@@ -126,7 +127,7 @@
                                 <h6>@(item.Car?.Brand ?? "") @(item.Car?.Model ?? "") (@item.Car?.Year)</h6>
                                 <p>@item.Description</p>
                                 <div class="available-status" style="@(item.AvailabilityStatus ? "background-color: #37f100;" : "background-color: #f10000;")"></div>
-                                <button class="post-item-btn">(@item.Price) р/день</button>
+                                <button class="post-item-btn">@item.Price р/день</button>
                                 <p style="margin: 4px 0 0 0; color: #494848; font-size: 12px; text-align: right">@item.CreatedAt.ToShortDateString()</p>
                             </div>
                             <input asp-for="@item.Id" value="@item.Id" style="display: none"/>
