@@ -56,8 +56,6 @@
         });
 
         document.getElementById('apply-filter').addEventListener('click', applyFilter);
-
-        
         
         function  applyFilter() {
             console.log('Button clicked');

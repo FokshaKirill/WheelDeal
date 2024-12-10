@@ -33,7 +33,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DAL\" />
       <Folder Include="wwwroot\fonts\" />
       <Folder Include="wwwroot\html\" />
       <Folder Include="wwwroot\images\" />

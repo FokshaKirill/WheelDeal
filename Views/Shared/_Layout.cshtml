@@ -43,26 +43,6 @@
                         <div>
                             @if (User.Identity.IsAuthenticated)
                             {
-                                @* <ul class="menu"> *@
-                                @*     <li> *@
-                                @*         $1$ @if (Model.ImagePath != null) #1# *@
-                                @*         $1$ { #1# *@
-                                @*         $1$     <img src="@Url.Content(Model.ImagePath)" alt="Avatar" class="avatar-image" /> #1# *@
-                                @*         $1$ } #1# *@
-                                @*         $1$ else #1# *@
-                                @*         $1$ { #1# *@
-                                @*         $1$ } #1# *@
-                                @*         <img src="/images/avatars/default.png" alt="Avatar" class="avatar-image" /> *@
-                                @* *@
-                                @*         <ul> *@
-                                @*             <li><a href="#">Личный кабинет</a></li> *@
-                                @*             <li><a href="#">Корзина</a></li> *@
-                                @*             <li><a href="#">Настройки</a></li> *@
-                                @*             <li><a class="nav-link text-dark" id="click-to-hide" onclick="window.location.href = '@Url.Action("Logout", "Home")'">Logout</a></li> *@
-                                @*         </ul> *@
-                                @*     </li> *@
-                                @* </ul> *@
-                                
                                 <a class="nav-link text-dark" id="click-to-hide" onclick="window.location.href = '@Url.Action("Logout", "Home")'">Logout</a>
                             }
                             @if (!User.Identity.IsAuthenticated)
